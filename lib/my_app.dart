@@ -17,34 +17,31 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return AppProviders(
-      child: BlocBuilder<ThemeCubit, ThemeState>(
-        builder: (context, state) {
-          bool isDark = false;
-          if (state is ThemeSuccess) {
-            isDark = state.theme.type == ThemeType.dark;
-          }
-          return ScreenUtilInit(
-            designSize: const Size(360, 690),
-            minTextAdapt: true,
-            splitScreenMode: true,
-            builder: (context, child) => FlavorBanner(
-              child: MaterialApp.router(
-                title: AppStrings.appName,
-                debugShowCheckedModeBanner: false,
-                builder: (context, child) =>
-                    AppWrapper(child: child ?? const SizedBox.shrink()),
-                theme: isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
-                supportedLocales: context.supportedLocales,
-                localizationsDelegates: context.localizationDelegates,
-                locale: context.locale,
-                routerConfig: router,
-              ),
+  Widget build(BuildContext context) => AppProviders(
+    child: BlocBuilder<ThemeCubit, ThemeState>(
+      builder: (context, state) {
+        var isDark = false;
+        if (state is ThemeSuccess) {
+          isDark = state.theme.type == ThemeType.dark;
+        }
+        return ScreenUtilInit(
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (context, child) => FlavorBanner(
+            child: MaterialApp.router(
+              title: AppStrings.appName,
+              debugShowCheckedModeBanner: false,
+              builder: (context, child) =>
+                  AppWrapper(child: child ?? const SizedBox.shrink()),
+              theme: isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
+              supportedLocales: context.supportedLocales,
+              localizationsDelegates: context.localizationDelegates,
+              locale: context.locale,
+              routerConfig: router,
             ),
-          );
-        },
-      ),
-    );
-  }
+          ),
+        );
+      },
+    ),
+  );
 }

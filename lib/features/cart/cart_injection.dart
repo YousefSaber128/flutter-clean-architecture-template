@@ -7,16 +7,12 @@ import 'presentation/manager/cart_cubit.dart';
 
 void initCart() {
   // State Management
-  sl.registerFactory(() => CartCubit());
-
-  // Use Cases
-  sl.registerLazySingleton(() => GetCartUseCase(sl()));
-
-  // Repository
-  sl.registerLazySingleton<CartRepository>(() => CartRepositoryImpl(sl()));
-
-  // Data Sources
-  sl.registerLazySingleton<CartRemoteDataSource>(
-    () => CartRemoteDataSourceImpl(),
-  );
+  sl
+    ..registerFactory(CartCubit.new)
+    // Use Cases
+    ..registerLazySingleton(() => GetCartUseCase(sl()))
+    // Repository
+    ..registerLazySingleton<CartRepository>(() => CartRepositoryImpl(sl()))
+    // Data Sources
+    ..registerLazySingleton<CartRemoteDataSource>(CartRemoteDataSourceImpl.new);
 }

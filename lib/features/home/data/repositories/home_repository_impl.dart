@@ -9,19 +9,17 @@ import '../datasources/home_local_data_source.dart';
 import '../datasources/home_remote_data_source.dart';
 
 class HomeRepositoryImpl implements HomeRepository {
-  final HomeRemoteDataSource remoteDataSource;
-  final HomeLocalDataSource localDataSource;
-
   HomeRepositoryImpl({
     required this.remoteDataSource,
     required this.localDataSource,
   });
+  final HomeRemoteDataSource remoteDataSource;
+  final HomeLocalDataSource localDataSource;
 
   @override
   Future<Either<Failure, List<ProductEntity>>> getProduct(
     PaginationParams params,
   ) async {
-    
     final cached = localDataSource.fetchProducts();
     final result = await safeCall(() => remoteDataSource.fetchProduct(params));
 

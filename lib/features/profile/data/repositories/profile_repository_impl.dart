@@ -6,12 +6,10 @@ import '../../domain/repositories/profile_repository.dart';
 import '../datasources/profile_remote_data_source.dart';
 
 class ProfileRepositoryImpl implements ProfileRepository {
+  ProfileRepositoryImpl(this.remoteDataSource);
   final ProfileRemoteDataSource remoteDataSource;
 
-  ProfileRepositoryImpl(this.remoteDataSource);
-
   @override
-  Future<Either<Failure, ProfileEntity>> getProfile() async {
-    return await remoteDataSource.fetchProfile();
-  }
+  Future<Either<Failure, ProfileEntity>> getProfile() =>
+      remoteDataSource.fetchProfile();
 }

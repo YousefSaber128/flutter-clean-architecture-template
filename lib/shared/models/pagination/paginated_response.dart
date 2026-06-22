@@ -1,15 +1,14 @@
 class PaginatedResponse<T> {
-  final List<T> data;
-  final int total;
-  final int limit;
-  final int skip;
-
   const PaginatedResponse({
     required this.data,
     required this.total,
     required this.limit,
     required this.skip,
   });
+  final List<T> data;
+  final int total;
+  final int limit;
+  final int skip;
 
   bool get hasNextPage => skip + limit < total;
 
@@ -18,12 +17,10 @@ class PaginatedResponse<T> {
 
   /// Helper map function to convert a PaginatedResponse of one type (Models)
   /// into another type (Entities), commonly used in the Data layer.
-  PaginatedResponse<E> map<E>(E Function(T e) mapper) {
-    return PaginatedResponse<E>(
-      data: data.map(mapper).toList(),
-      total: total,
-      limit: limit,
-      skip: skip,
-    );
-  }
+  PaginatedResponse<E> map<E>(E Function(T e) mapper) => PaginatedResponse<E>(
+    data: data.map(mapper).toList(),
+    total: total,
+    limit: limit,
+    skip: skip,
+  );
 }

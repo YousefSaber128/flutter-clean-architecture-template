@@ -10,22 +10,20 @@ class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Cart')),
-      body: BlocProvider<CartCubit>(
-        create: (context) => CartCubit(),
-        child: BlocBuilder<CartCubit, CartState>(
-          builder: (context, state) {
-            if (state is CartLoading) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            return Center(
-              child: Text(LocaleKeys.navigation_cart.tr(context: context)),
-            );
-          },
-        ),
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(title: const Text('Cart')),
+    body: BlocProvider<CartCubit>(
+      create: (context) => CartCubit(),
+      child: BlocBuilder<CartCubit, CartState>(
+        builder: (context, state) {
+          if (state is CartLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          return Center(
+            child: Text(LocaleKeys.navigation_cart.tr(context: context)),
+          );
+        },
       ),
-    );
-  }
+    ),
+  );
 }

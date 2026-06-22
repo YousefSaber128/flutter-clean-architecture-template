@@ -14,55 +14,33 @@ class SharedPreferencesService {
     return _preferences!;
   }
 
-  Future<bool> saveString(String key, String value) async {
-    return await _prefs.setString(key, value);
-  }
+  Future<bool> saveString(String key, String value) =>
+      _prefs.setString(key, value);
 
-  String? getString(String key) {
-    return _prefs.getString(key);
-  }
+  String? getString(String key) => _prefs.getString(key);
 
-  Future<bool> saveBool(String key, bool value) async {
-    return await _prefs.setBool(key, value);
-  }
+  Future<bool> saveBool(String key, {bool value = false}) =>
+      _prefs.setBool(key, value);
 
-  bool? getBool(String key) {
-    return _prefs.getBool(key);
-  }
+  bool? getBool(String key) => _prefs.getBool(key);
 
-  Future<bool> saveInt(String key, int value) async {
-    return await _prefs.setInt(key, value);
-  }
+  Future<bool> saveInt(String key, int value) => _prefs.setInt(key, value);
 
-  int? getInt(String key) {
-    return _prefs.getInt(key);
-  }
+  int? getInt(String key) => _prefs.getInt(key);
 
-  Future<bool> saveDouble(String key, double value) async {
-    return await _prefs.setDouble(key, value);
-  }
+  Future<bool> saveDouble(String key, double value) =>
+      _prefs.setDouble(key, value);
 
-  double? getDouble(String key) {
-    return _prefs.getDouble(key);
-  }
+  double? getDouble(String key) => _prefs.getDouble(key);
 
-  Future<bool> saveStringList(String key, List<String> value) async {
-    return await _prefs.setStringList(key, value);
-  }
+  Future<bool> saveStringList(String key, List<String> value) =>
+      _prefs.setStringList(key, value);
 
-  List<String>? getStringList(String key) {
-    return _prefs.getStringList(key);
-  }
+  List<String>? getStringList(String key) => _prefs.getStringList(key);
 
-  Future<bool> remove(String key) async {
-    return await _prefs.remove(key);
-  }
+  Future<bool> remove(String key) => _prefs.remove(key);
 
-  Future<bool> clear() async {
-    return await _prefs.clear();
-  }
+  Future<bool> clear() => _prefs.clear();
 
-  bool containsKey(String key) {
-    return _prefs.containsKey(key);
-  }
+  bool containsKey(String key) => _prefs.containsKey(key);
 }

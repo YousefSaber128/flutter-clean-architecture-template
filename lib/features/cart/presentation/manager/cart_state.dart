@@ -8,11 +8,14 @@ abstract class CartState extends Equatable {
 }
 
 class CartInitial extends CartState {}
+
 class CartLoading extends CartState {}
+
 class CartLoaded extends CartState {}
+
 class CartError extends CartState {
-  final String message;
   const CartError(this.message);
+  final String message;
   @override
   List<Object> get props => [message];
 }

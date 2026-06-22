@@ -4,12 +4,11 @@ import 'package:logger/logger.dart';
 import '../network_info.dart';
 
 class ConnectivityInterceptor extends Interceptor {
+  ConnectivityInterceptor(this.networkInfo);
   final NetworkInfo networkInfo;
 
-  ConnectivityInterceptor(this.networkInfo);
-
   @override
-  void onRequest(
+  Future<void> onRequest(
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
@@ -33,7 +32,8 @@ class ApiInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // final token = '';
     // options.headers['Authorization'] = 'Bearer $token';
-    // options.headers['locale'] = sl<LocalizationService>().currentLocale.languageCode;
+    // options.headers['locale'] =
+    // sl<LocalizationService>().currentLocale.languageCode;
 
     super.onRequest(options, handler);
   }
@@ -43,7 +43,6 @@ class LoggingInterceptor extends Interceptor {
   final Logger _logger = Logger(
     printer: PrettyPrinter(
       methodCount: 0,
-      printEmojis: true,
       dateTimeFormat: DateTimeFormat.onlyTimeAndSinceStart,
     ),
   );
@@ -51,7 +50,8 @@ class LoggingInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     _logger.i(
-      '🚀 REQUEST[${options.method}] => ${options.uri}\nHeaders: ${options.headers}\nData: ${options.data}',
+      '🚀 REQUEST[${options.method}] => '
+      '${options.uri}\nHeaders: ${options.headers}\nData: ${options.data}',
     );
     handler.next(options);
   }
@@ -59,7 +59,8 @@ class LoggingInterceptor extends Interceptor {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     _logger.d(
-      '✅ RESPONSE[${response.statusCode}] => ${response.requestOptions.uri}\nData: ${response.data}',
+      '✅ RESPONSE[${response.statusCode}] => '
+      '${response.requestOptions.uri}\nData: ${response.data}',
     );
     handler.next(response);
   }
@@ -67,7 +68,8 @@ class LoggingInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     _logger.e(
-      '❌ ERROR[${err.response?.statusCode}] => ${err.requestOptions.uri}\nMessage: ${err.message}\nError: ${err.error}',
+      '❌ ERROR[${err.response?.statusCode}] => '
+      '${err.requestOptions.uri}\nMessage: ${err.message}\nError: ${err.error}',
     );
     handler.next(err);
   }

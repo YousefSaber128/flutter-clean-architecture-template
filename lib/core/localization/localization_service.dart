@@ -19,29 +19,31 @@ class LocalizationService {
   Locale get currentLocale {
     final code = sl<SharedPreferencesService>().getString(StorageKeys.locale);
 
-    if (code == null) return fallbackLocale;
+    if (code == null) {
+      return fallbackLocale;
+    }
 
     return supportedLocales.any((l) => l.languageCode == code)
         ? Locale(code)
         : fallbackLocale;
   }
 
-  void setLocale(BuildContext context, Locale locale) {
+  Future<void> setLocale(BuildContext context, Locale locale) async {
     if (currentLocale != locale) {
-      context.setLocale(locale);
-      sl<SharedPreferencesService>().saveString(
+      await context.setLocale(locale);
+      await sl<SharedPreferencesService>().saveString(
         StorageKeys.locale,
         locale.languageCode,
       );
     }
   }
 
-  void changeLanguage(BuildContext context) {
+  Future<void> changeLanguage(BuildContext context) async {
     final newLocale = currentLocale.languageCode == 'ar'
         ? const Locale('en')
         : const Locale('ar');
 
-    setLocale(context, newLocale);
+    await setLocale(context, newLocale);
   }
 
   bool get isRTL => ['ar'].contains(currentLocale.languageCode);

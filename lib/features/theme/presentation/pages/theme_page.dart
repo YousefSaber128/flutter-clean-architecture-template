@@ -8,17 +8,15 @@ class ThemePage extends StatelessWidget {
   const ThemePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Theme')),
-      body: BlocBuilder<ThemeCubit, ThemeState>(
-        builder: (context, state) {
-          if (state is ThemeLoading) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          return const Center(child: Text('Loaded State'));
-        },
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(title: const Text('Theme')),
+    body: BlocBuilder<ThemeCubit, ThemeState>(
+      builder: (context, state) {
+        if (state is ThemeLoading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        return const Center(child: Text('Loaded State'));
+      },
+    ),
+  );
 }

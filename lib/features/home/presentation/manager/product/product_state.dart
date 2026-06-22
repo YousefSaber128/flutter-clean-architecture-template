@@ -14,15 +14,15 @@ class ProductInitial extends ProductState {}
 class ProductLoading extends ProductState {}
 
 class ProductLoaded extends ProductState {
-  final List<ProductEntity> products;
   const ProductLoaded(this.products);
+  final List<ProductEntity> products;
   @override
   List<Object> get props => [products];
 }
 
 class ProductError extends ProductState {
-  final String message;
   const ProductError(this.message);
+  final String message;
   @override
   List<Object> get props => [message];
 }

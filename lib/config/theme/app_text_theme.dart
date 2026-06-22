@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app_fonts.dart';
 
-class AppTextTheme {
+sealed class AppTextTheme {
+  const AppTextTheme();
   static TextTheme light = TextTheme(
     titleLarge: TextStyle(
       fontSize: 20.sp,

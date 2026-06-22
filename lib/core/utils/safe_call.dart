@@ -11,7 +11,7 @@ Future<Either<Failure, T>> safeCall<T>(Future<T> Function() call) async {
     return Left(failureFromDioException(e));
   } on FormatException catch (e) {
     return Left(ServerFailure(e.message));
-  } catch (e) {
+  } on Exception catch (e) {
     return Left(ServerFailure(e.toString()));
   }
 }

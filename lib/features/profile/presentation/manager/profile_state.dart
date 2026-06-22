@@ -8,11 +8,14 @@ abstract class ProfileState extends Equatable {
 }
 
 class ProfileInitial extends ProfileState {}
+
 class ProfileLoading extends ProfileState {}
+
 class ProfileLoaded extends ProfileState {}
+
 class ProfileError extends ProfileState {
-  final String message;
   const ProfileError(this.message);
+  final String message;
   @override
   List<Object> get props => [message];
 }

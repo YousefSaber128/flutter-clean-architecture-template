@@ -6,12 +6,9 @@ import '../../domain/repositories/cart_repository.dart';
 import '../datasources/cart_remote_data_source.dart';
 
 class CartRepositoryImpl implements CartRepository {
+  CartRepositoryImpl(this.remoteDataSource);
   final CartRemoteDataSource remoteDataSource;
 
-  CartRepositoryImpl(this.remoteDataSource);
-
   @override
-  Future<Either<Failure, CartEntity>> getCart() async {
-    return await remoteDataSource.fetchCart();
-  }
+  Future<Either<Failure, CartEntity>> getCart() => remoteDataSource.fetchCart();
 }

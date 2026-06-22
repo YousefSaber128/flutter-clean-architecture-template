@@ -17,39 +17,40 @@ import '../storage/secure_storage_service.dart';
 import '../storage/shared_prefs_service.dart';
 import '../storage/storage_keys.dart';
 
-final sl = GetIt.instance; // sl = Service Locator
+final GetIt sl = GetIt.instance; // sl = Service Locator
 
 Future<void> initCore() async {
   // Storage
   await Hive.initFlutter();
-  Hive.registerAdapter(ProductEntityAdapter());
-  Hive.registerAdapter(DimensionsEntityAdapter());
-  Hive.registerAdapter(ReviewEntityAdapter());
-  Hive.registerAdapter(MetaEntityAdapter());
+  Hive
+    ..registerAdapter(ProductEntityAdapter())
+    ..registerAdapter(DimensionsEntityAdapter())
+    ..registerAdapter(ReviewEntityAdapter())
+    ..registerAdapter(MetaEntityAdapter());
   await Hive.openBox<ProductEntity>(StorageKeys.product_box);
 
   await SharedPreferencesService.init();
   await LocalizationService.initialize();
-  sl.registerLazySingleton(() => SharedPreferencesService());
-  sl.registerLazySingleton(() => LocalizationService());
-  sl.registerLazySingleton(
-    () => SecureStorageService(const FlutterSecureStorage()),
-  );
+  sl
+    ..registerLazySingleton(SharedPreferencesService.new)
+    ..registerLazySingleton(LocalizationService.new)
+    ..registerLazySingleton(
+      () => SecureStorageService(const FlutterSecureStorage()),
+    );
 
   initTheme();
   // External
-  sl.registerLazySingleton(() => InternetConnection());
-  sl.registerLazySingleton(() => Dio());
-
-  // Core
-  sl.registerLazySingleton<NetworkInfo>(
-    () => NetworkInfoImpl(sl<InternetConnection>()),
-  );
-
-  sl.registerLazySingleton<ApiConsumer>(() => DioConsumer(dio: sl<Dio>()));
+  sl
+    ..registerLazySingleton(InternetConnection.new)
+    ..registerLazySingleton(Dio.new)
+    // Core
+    ..registerLazySingleton<NetworkInfo>(
+      () => NetworkInfoImpl(sl<InternetConnection>()),
+    )
+    ..registerLazySingleton<ApiConsumer>(() => DioConsumer(dio: sl<Dio>()));
 
   // Features
-  initHome();
+  await initHome();
   initCart();
   initProfile();
 }

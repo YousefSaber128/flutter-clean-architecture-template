@@ -14,15 +14,15 @@ class ThemeInitial extends ThemeState {}
 class ThemeLoading extends ThemeState {}
 
 class ThemeSuccess extends ThemeState {
-  final ThemeEntity theme;
   const ThemeSuccess(this.theme);
+  final ThemeEntity theme;
   @override
   List<Object> get props => [theme];
 }
 
 class ThemeError extends ThemeState {
-  final String message;
   const ThemeError(this.message);
+  final String message;
   @override
   List<Object> get props => [message];
 }

@@ -8,23 +8,21 @@ import 'domain/usecases/get_theme_usecase.dart';
 import 'domain/usecases/save_theme_usecase.dart';
 import 'presentation/manager/theme_cubit.dart';
 
-final sl = GetIt.instance;
+final GetIt sl = GetIt.instance;
 
 void initTheme() {
   // Cubit
-  sl.registerFactory(
-    () => ThemeCubit(getThemeUseCase: sl(), saveThemeUseCase: sl()),
-  );
-
-  // Use Cases
-  sl.registerLazySingleton(() => GetThemeUseCase(sl()));
-  sl.registerLazySingleton(() => SaveThemeUseCase(sl()));
-
-  // Repository
-  sl.registerLazySingleton<ThemeRepository>(() => ThemeRepositoryImpl(sl()));
-
-  // Data Sources
-  sl.registerLazySingleton<ThemeLocalDataSource>(
-    () => ThemeLocalDataSource(sl<SharedPreferencesService>()),
-  );
+  sl
+    ..registerFactory(
+      () => ThemeCubit(getThemeUseCase: sl(), saveThemeUseCase: sl()),
+    )
+    // Use Cases
+    ..registerLazySingleton(() => GetThemeUseCase(sl()))
+    ..registerLazySingleton(() => SaveThemeUseCase(sl()))
+    // Repository
+    ..registerLazySingleton<ThemeRepository>(() => ThemeRepositoryImpl(sl()))
+    // Data Sources
+    ..registerLazySingleton<ThemeLocalDataSource>(
+      () => ThemeLocalDataSource(sl<SharedPreferencesService>()),
+    );
 }

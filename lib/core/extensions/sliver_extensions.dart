@@ -7,15 +7,13 @@ extension SliverExtensions on Widget {
     Duration duration = const Duration(milliseconds: 300),
     AnimatedSwitcherTransitionBuilder? transitionBuilder,
     Key? key,
-  }) {
-    return SliverToBoxAdapter(
-      child: AnimatedSwitcher(
-        duration: duration,
-        transitionBuilder:
-            transitionBuilder ?? AnimatedSwitcher.defaultTransitionBuilder,
-        key: key,
-        child: this,
-      ),
-    );
-  }
+  }) => SliverToBoxAdapter(
+    child: AnimatedSwitcher(
+      duration: duration,
+      transitionBuilder:
+          transitionBuilder ?? AnimatedSwitcher.defaultTransitionBuilder,
+      key: key,
+      child: this,
+    ),
+  );
 }

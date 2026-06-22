@@ -1,6 +1,7 @@
 import '../../config/env/env.dart';
 
-class ApiEndpoints {
+sealed class ApiEndpoints {
+  const ApiEndpoints();
   static String baseUrlDev = Env.baseUrl;
   static String baseUrlProd = Env.baseUrl;
   static String apiKey = Env.apiKey;

@@ -11,11 +11,14 @@ class AppBlocObserver extends BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
     super.onChange(bloc, change);
-    if (!kDebugMode) return;
+    if (!kDebugMode) {
+      return;
+    }
 
     if (verboseChanges) {
       AppLogger.info(
-        'Change ${bloc.runtimeType}: ${change.currentState} → ${change.nextState}',
+        'Change ${bloc.runtimeType}: '
+        '${change.currentState} → ${change.nextState}',
       );
       return;
     }
@@ -29,34 +32,44 @@ class AppBlocObserver extends BlocObserver {
   @override
   void onClose(BlocBase bloc) {
     super.onClose(bloc);
-    if (!kDebugMode) return;
+    if (!kDebugMode) {
+      return;
+    }
     AppLogger.info('Bloc closed: ${bloc.runtimeType}');
   }
 
   @override
   void onCreate(BlocBase bloc) {
     super.onCreate(bloc);
-    if (!kDebugMode) return;
+    if (!kDebugMode) {
+      return;
+    }
     AppLogger.info('Bloc created: ${bloc.runtimeType}');
   }
 
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
     super.onError(bloc, error, stackTrace);
-    if (!kDebugMode) return;
+    if (!kDebugMode) {
+      return;
+    }
     AppLogger.error('Error in ${bloc.runtimeType}', error, stackTrace);
   }
 
   @override
   void onEvent(Bloc bloc, Object? event) {
     super.onEvent(bloc, event);
-    if (!kDebugMode) return;
+    if (!kDebugMode) {
+      return;
+    }
     final label = verboseChanges ? '$event' : _typeLabel(event);
     AppLogger.info('Event ${bloc.runtimeType}: $label');
   }
 
   static String _typeLabel(Object? value) {
-    if (value == null) return 'null';
+    if (value == null) {
+      return 'null';
+    }
     return value.runtimeType.toString();
   }
 }

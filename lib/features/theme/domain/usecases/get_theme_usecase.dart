@@ -1,12 +1,9 @@
-import '../repositories/theme_repository.dart';
 import '../entities/theme_entity.dart';
+import '../repositories/theme_repository.dart';
 
 class GetThemeUseCase {
+  GetThemeUseCase(this.repository);
   final ThemeRepository repository;
 
-  GetThemeUseCase(this.repository);
-
-  Future<ThemeEntity> call() async {
-    return await repository.getTheme();
-  }
+  Future<ThemeEntity> call() => repository.getTheme();
 }

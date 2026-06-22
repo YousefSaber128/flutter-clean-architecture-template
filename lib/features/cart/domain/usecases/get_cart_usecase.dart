@@ -6,9 +6,8 @@ import '../entities/cart_entity.dart';
 import '../repositories/cart_repository.dart';
 
 class GetCartUseCase implements UseCase<CartEntity, NoParam> {
-  final CartRepository repository;
-
   GetCartUseCase(this.repository);
+  final CartRepository repository;
 
   @override
   Future<Either<Failure, CartEntity>> call([NoParam? param]) =>

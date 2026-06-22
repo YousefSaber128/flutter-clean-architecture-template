@@ -23,17 +23,18 @@ class _NoDataFoundWidgetState extends State<NoDataFoundWidget>
   late final Animation<double> _scaleAnimation;
 
   @override
-  void initState() {
+  Future<void> initState() async {
     super.initState();
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 600),
     );
     _fadeAnimation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
-    _scaleAnimation = Tween<double>(begin: 0.85, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOutBack),
-    );
-    _controller.forward();
+    _scaleAnimation = Tween<double>(
+      begin: 0.85,
+      end: 1,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
+    await _controller.forward();
   }
 
   @override
@@ -54,7 +55,7 @@ class _NoDataFoundWidgetState extends State<NoDataFoundWidget>
         scale: _scaleAnimation,
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0),
+            padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,

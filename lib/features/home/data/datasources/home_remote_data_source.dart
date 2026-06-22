@@ -4,14 +4,13 @@ import '../../../../shared/models/pagination/pagination_params.dart';
 import '../../domain/entities/product/product_entity.dart';
 import '../models/product/product_model.dart';
 
-abstract class HomeRemoteDataSource {
+sealed class HomeRemoteDataSource {
   Future<List<ProductEntity>> fetchProduct(PaginationParams params);
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
-  final ApiConsumer _dio;
-
   HomeRemoteDataSourceImpl(this._dio);
+  final ApiConsumer _dio;
 
   @override
   Future<List<ProductEntity>> fetchProduct(PaginationParams params) async {

@@ -7,18 +7,16 @@ import 'presentation/manager/profile_cubit.dart';
 
 void initProfile() {
   // State Management
-  sl.registerFactory(() => ProfileCubit());
-
-  // Use Cases
-  sl.registerLazySingleton(() => GetProfileUseCase(sl()));
-
-  // Repository
-  sl.registerLazySingleton<ProfileRepository>(
-    () => ProfileRepositoryImpl(sl()),
-  );
-
-  // Data Sources
-  sl.registerLazySingleton<ProfileRemoteDataSource>(
-    () => ProfileRemoteDataSourceImpl(),
-  );
+  sl
+    ..registerFactory(ProfileCubit.new)
+    // Use Cases
+    ..registerLazySingleton(() => GetProfileUseCase(sl()))
+    // Repository
+    ..registerLazySingleton<ProfileRepository>(
+      () => ProfileRepositoryImpl(sl()),
+    )
+    // Data Sources
+    ..registerLazySingleton<ProfileRemoteDataSource>(
+      ProfileRemoteDataSourceImpl.new,
+    );
 }

@@ -7,20 +7,17 @@ import 'nav_enum.dart';
 import 'widgets/nav_item_widget.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
+  const CustomBottomNavBar({
+    required this.currentIndex, required this.onTap, super.key,
+  });
   final int currentIndex;
   final ValueChanged<int> onTap;
 
-  const CustomBottomNavBar({
-    super.key,
-    required this.currentIndex,
-    required this.onTap,
-  });
-
   @override
   Widget build(BuildContext context) {
-    final tabs = NavEnum.values;
+    const tabs = NavEnum.values;
 
-    return Container(
+    return DecoratedBox(
       decoration: BoxDecoration(
         color: context.theme.colorScheme.surface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(25.r)),

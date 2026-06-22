@@ -34,7 +34,7 @@ class AppColors {
   static const Color gray800 = Color(0xFF1F2937);
   static const Color gray900 = Color(0xFF111827);
   static const Color divider = Color(0xFFEAECF0);
-  
+
   // Dark Theme Colors
   static const Color darkBackground = Color(0xFF0F172A);
   static const Color darkSurface = Color(0xFF1E293B);

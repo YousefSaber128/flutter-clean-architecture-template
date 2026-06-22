@@ -4,23 +4,18 @@ import 'package:shimmer/shimmer.dart';
 import '../../core/extensions/widget_extensions.dart';
 
 class CustomShimmer extends StatelessWidget {
-  final double width;
-  final double height;
-  final double borderRadius;
-
   const CustomShimmer({
-    super.key,
-    required this.width,
-    required this.height,
+    required this.width, required this.height, super.key,
     this.borderRadius = 8.0,
   });
 
   const CustomShimmer.circular({
-    super.key,
-    required this.width,
-    required this.height,
+    required this.width, required this.height, super.key,
     this.borderRadius = 1000.0, // Large enough to be a circle
   });
+  final double width;
+  final double height;
+  final double borderRadius;
 
   @override
   Widget build(BuildContext context) {

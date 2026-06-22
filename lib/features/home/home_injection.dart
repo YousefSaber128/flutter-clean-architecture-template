@@ -7,26 +7,22 @@ import 'domain/repositories/home_repository.dart';
 import 'domain/usecases/get_product_usecase.dart';
 import 'presentation/manager/product/product_cubit.dart';
 
-void initHome() async {
+Future<void> initHome() async {
   // State Management
-  sl.registerFactory(() => ProductCubit(sl<GetProductUseCase>()));
-
-  // Use Cases
-  sl.registerLazySingleton(() => GetProductUseCase(sl()));
-
-  // Data Sources
-  sl.registerLazySingleton<HomeRemoteDataSource>(
-    () => HomeRemoteDataSourceImpl(sl<ApiConsumer>()),
-  );
-  sl.registerLazySingleton<HomeLocalDataSource>(
-    () => HomeLocalDataSourceImpl(),
-  );
-
-  // Repository
-  sl.registerLazySingleton<HomeRepository>(
-    () => HomeRepositoryImpl(
-      remoteDataSource: sl<HomeRemoteDataSource>(),
-      localDataSource: sl<HomeLocalDataSource>(),
-    ),
-  );
+  sl
+    ..registerFactory(() => ProductCubit(sl<GetProductUseCase>()))
+    // Use Cases
+    ..registerLazySingleton(() => GetProductUseCase(sl()))
+    // Data Sources
+    ..registerLazySingleton<HomeRemoteDataSource>(
+      () => HomeRemoteDataSourceImpl(sl<ApiConsumer>()),
+    )
+    ..registerLazySingleton<HomeLocalDataSource>(HomeLocalDataSourceImpl.new)
+    // Repository
+    ..registerLazySingleton<HomeRepository>(
+      () => HomeRepositoryImpl(
+        remoteDataSource: sl<HomeRemoteDataSource>(),
+        localDataSource: sl<HomeLocalDataSource>(),
+      ),
+    );
 }

@@ -20,7 +20,8 @@ extension ExpandedExtension on Widget {
 }
 
 extension VisibilityExtension on Widget {
-  Widget visible(bool isVisible) => isVisible ? this : const SizedBox.shrink();
+  Widget visible({bool isVisible = true}) =>
+      isVisible ? this : const SizedBox.shrink();
 }
 
 extension MarginExtension on Widget {

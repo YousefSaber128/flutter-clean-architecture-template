@@ -2,7 +2,7 @@ import 'dart:developer' as developer;
 
 import 'package:flutter/foundation.dart';
 
-class AppLogger {
+sealed class AppLogger {
   static void info(String message) {
     _log('\x1B[34m$message\x1B[0m', name: 'INFO');
   }

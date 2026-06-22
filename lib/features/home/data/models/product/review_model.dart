@@ -9,35 +9,29 @@ class ReviewModel extends ReviewEntity {
     required super.reviewerEmail,
   });
 
-  factory ReviewModel.fromJson(Map<String, dynamic> json) {
-    return ReviewModel(
-      rating: json['rating'] as int? ?? 0,
-      comment: json['comment'] as String? ?? '',
-      date: json['date'] != null
-          ? (DateTime.tryParse(json['date'] as String) ?? DateTime.now())
-          : DateTime.now(),
-      reviewerName: json['reviewerName'] as String? ?? '',
-      reviewerEmail: json['reviewerEmail'] as String? ?? '',
-    );
-  }
+  factory ReviewModel.fromJson(Map<String, dynamic> json) => ReviewModel(
+    rating: json['rating'] as int? ?? 0,
+    comment: json['comment'] as String? ?? '',
+    date: json['date'] != null
+        ? (DateTime.tryParse(json['date'] as String) ?? DateTime.now())
+        : DateTime.now(),
+    reviewerName: json['reviewerName'] as String? ?? '',
+    reviewerEmail: json['reviewerEmail'] as String? ?? '',
+  );
 
-  Map<String, dynamic> toJson() {
-    return {
-      'rating': rating,
-      'comment': comment,
-      'date': date.toIso8601String(),
-      'reviewerName': reviewerName,
-      'reviewerEmail': reviewerEmail,
-    };
-  }
+  Map<String, dynamic> toJson() => {
+    'rating': rating,
+    'comment': comment,
+    'date': date.toIso8601String(),
+    'reviewerName': reviewerName,
+    'reviewerEmail': reviewerEmail,
+  };
 
-  ReviewEntity toEntity() {
-    return ReviewEntity(
-      rating: rating,
-      comment: comment,
-      date: date,
-      reviewerName: reviewerName,
-      reviewerEmail: reviewerEmail,
-    );
-  }
+  ReviewEntity toEntity() => ReviewEntity(
+    rating: rating,
+    comment: comment,
+    date: date,
+    reviewerName: reviewerName,
+    reviewerEmail: reviewerEmail,
+  );
 }

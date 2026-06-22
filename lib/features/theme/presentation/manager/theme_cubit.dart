@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/entities/theme_entity.dart';
@@ -6,20 +8,19 @@ import '../../domain/usecases/save_theme_usecase.dart';
 import 'theme_state.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
+  ThemeCubit({required this.getThemeUseCase, required this.saveThemeUseCase})
+    : super(ThemeInitial()) {
+    unawaited(_loadData());
+  }
   final GetThemeUseCase getThemeUseCase;
   final SaveThemeUseCase saveThemeUseCase;
 
-  ThemeCubit({
-    required this.getThemeUseCase,
-    required this.saveThemeUseCase,
-  }) : super(ThemeInitial());
-
-  Future<void> loadData() async {
+  Future<void> _loadData() async {
     emit(ThemeLoading());
     try {
       final theme = await getThemeUseCase();
       emit(ThemeSuccess(theme));
-    } catch (e) {
+    } on Exception catch (e) {
       emit(ThemeError(e.toString()));
     }
   }
@@ -30,13 +31,13 @@ class ThemeCubit extends Cubit<ThemeState> {
       final newThemeType = currentThemeType == ThemeType.light
           ? ThemeType.dark
           : ThemeType.light;
-      
+
       final newTheme = ThemeEntity(type: newThemeType);
-      
+
       try {
         await saveThemeUseCase(newTheme);
         emit(ThemeSuccess(newTheme));
-      } catch (e) {
+      } on Exception catch (e) {
         emit(ThemeError(e.toString()));
       }
     }

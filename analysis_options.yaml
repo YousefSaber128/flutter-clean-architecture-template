@@ -1,4 +1,4 @@
-include: package:flutter_lints/flutter.yaml
+include: '../shared_core/analysis_options.yaml'
 
 linter:
   rules:

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../shared/mixin/cancelable_safe_cubit_mixin.dart';
@@ -8,14 +10,15 @@ import 'product_state.dart';
 
 class ProductCubit extends Cubit<ProductState>
     with CancelableSafeCubitMixin<ProductState> {
+  ProductCubit(this.getProductUseCase) : super(ProductInitial()) {
+    unawaited(loadProducts());
+  }
   final GetProductUseCase getProductUseCase;
 
   final List<ProductEntity> _products = [];
   List<ProductEntity> get products => List.unmodifiable(_products);
 
   bool hasReachedMax = false;
-
-  ProductCubit(this.getProductUseCase) : super(ProductInitial());
 
   Future<void> loadProducts({int limit = 10, bool isRefresh = false}) async {
     if (isRefresh) {

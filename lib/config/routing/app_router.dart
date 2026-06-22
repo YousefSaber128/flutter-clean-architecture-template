@@ -14,9 +14,8 @@ final router = GoRouter(
   initialLocation: RouteNames.kRootPage,
   routes: [
     StatefulShellRoute.indexedStack(
-      builder: (context, state, navigationShell) {
-        return RootPage(navigationShell: navigationShell);
-      },
+      builder: (context, state, navigationShell) =>
+          RootPage(navigationShell: navigationShell),
       branches: [
         StatefulShellBranch(
           routes: [

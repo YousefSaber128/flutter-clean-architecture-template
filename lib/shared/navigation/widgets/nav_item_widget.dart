@@ -7,16 +7,12 @@ import '../../../core/extensions/widget_extensions.dart';
 import '../nav_enum.dart';
 
 class NavItemWidget extends StatelessWidget {
+  const NavItemWidget({
+    required this.tab, required this.isSelected, required this.onTap, super.key,
+  });
   final NavEnum tab;
   final bool isSelected;
   final VoidCallback onTap;
-
-  const NavItemWidget({
-    super.key,
-    required this.tab,
-    required this.isSelected,
-    required this.onTap,
-  });
 
   static const _duration = Duration(milliseconds: 250);
 

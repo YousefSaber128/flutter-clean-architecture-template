@@ -4,6 +4,30 @@ part 'product_entity.g.dart';
 
 @HiveType(typeId: 0)
 class ProductEntity extends Equatable {
+  const ProductEntity({
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.category,
+    required this.price,
+    required this.discountPercentage,
+    required this.rating,
+    required this.stock,
+    required this.tags,
+    required this.sku,
+    required this.weight,
+    required this.dimensions,
+    required this.warrantyInformation,
+    required this.shippingInformation,
+    required this.availabilityStatus,
+    required this.reviews,
+    required this.returnPolicy,
+    required this.minimumOrderQuantity,
+    required this.meta,
+    required this.images,
+    required this.thumbnail,
+    this.brand,
+  });
   @HiveField(0)
   final int id;
   @HiveField(1)
@@ -49,31 +73,6 @@ class ProductEntity extends Equatable {
   @HiveField(21)
   final String thumbnail;
 
-  const ProductEntity({
-    required this.id,
-    required this.title,
-    required this.description,
-    required this.category,
-    required this.price,
-    required this.discountPercentage,
-    required this.rating,
-    required this.stock,
-    required this.tags,
-    this.brand,
-    required this.sku,
-    required this.weight,
-    required this.dimensions,
-    required this.warrantyInformation,
-    required this.shippingInformation,
-    required this.availabilityStatus,
-    required this.reviews,
-    required this.returnPolicy,
-    required this.minimumOrderQuantity,
-    required this.meta,
-    required this.images,
-    required this.thumbnail,
-  });
-
   @override
   List<Object?> get props => [
     id,
@@ -103,6 +102,11 @@ class ProductEntity extends Equatable {
 
 @HiveType(typeId: 1)
 class DimensionsEntity extends Equatable {
+  const DimensionsEntity({
+    required this.width,
+    required this.height,
+    required this.depth,
+  });
   @HiveField(0)
   final double width;
   @HiveField(1)
@@ -110,18 +114,19 @@ class DimensionsEntity extends Equatable {
   @HiveField(2)
   final double depth;
 
-  const DimensionsEntity({
-    required this.width,
-    required this.height,
-    required this.depth,
-  });
-
   @override
   List<Object?> get props => [width, height, depth];
 }
 
 @HiveType(typeId: 2)
 class ReviewEntity extends Equatable {
+  const ReviewEntity({
+    required this.rating,
+    required this.comment,
+    required this.date,
+    required this.reviewerName,
+    required this.reviewerEmail,
+  });
   @HiveField(0)
   final int rating;
   @HiveField(1)
@@ -132,14 +137,6 @@ class ReviewEntity extends Equatable {
   final String reviewerName;
   @HiveField(4)
   final String reviewerEmail;
-
-  const ReviewEntity({
-    required this.rating,
-    required this.comment,
-    required this.date,
-    required this.reviewerName,
-    required this.reviewerEmail,
-  });
 
   @override
   List<Object?> get props => [
@@ -153,6 +150,12 @@ class ReviewEntity extends Equatable {
 
 @HiveType(typeId: 3)
 class MetaEntity extends Equatable {
+  const MetaEntity({
+    required this.createdAt,
+    required this.updatedAt,
+    required this.barcode,
+    required this.qrCode,
+  });
   @HiveField(0)
   final DateTime createdAt;
   @HiveField(1)
@@ -162,14 +165,6 @@ class MetaEntity extends Equatable {
   @HiveField(3)
   final String qrCode;
 
-  const MetaEntity({
-    required this.createdAt,
-    required this.updatedAt,
-    required this.barcode,
-    required this.qrCode,
-  });
-
   @override
   List<Object?> get props => [createdAt, updatedAt, barcode, qrCode];
 }
-

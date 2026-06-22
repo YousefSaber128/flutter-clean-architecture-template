@@ -6,9 +6,8 @@ import '../../core/localization/localization_service.dart';
 
 /// A wrapper to initialize [EasyLocalization] with supported locales.
 class LocalizationWrapper extends StatelessWidget {
+  const LocalizationWrapper({required this.child, super.key});
   final Widget child;
-
-  const LocalizationWrapper({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,6 @@ class LocalizationWrapper extends StatelessWidget {
       supportedLocales: localizationService.supportedLocales,
       fallbackLocale: localizationService.fallbackLocale,
       startLocale: localizationService.currentLocale,
-      saveLocale: true,
       useOnlyLangCode: true,
       child: child,
     );

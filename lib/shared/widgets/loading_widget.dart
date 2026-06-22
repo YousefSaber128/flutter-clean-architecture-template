@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LoadingWidget extends StatelessWidget {
-  const LoadingWidget({
-    super.key,
-    this.message,
-    this.size,
-  });
+  const LoadingWidget({super.key, this.message, this.size});
 
   final String? message;
   final double? size;
@@ -19,7 +15,7 @@ class LoadingWidget extends StatelessWidget {
 
     return Center(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32.0),
+        padding: const EdgeInsets.symmetric(horizontal: 32),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,

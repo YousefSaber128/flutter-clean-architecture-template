@@ -8,14 +8,11 @@ import '../repositories/home_repository.dart';
 
 class GetProductUseCase
     implements UseCase<List<ProductEntity>, PaginationParams> {
-  final HomeRepository repository;
-
   GetProductUseCase(this.repository);
+  final HomeRepository repository;
 
   @override
   Future<Either<Failure, List<ProductEntity>>> call([
     PaginationParams? param,
-  ]) async {
-    return await repository.getProduct(param ?? const PaginationParams());
-  }
+  ]) => repository.getProduct(param ?? const PaginationParams());
 }

@@ -3,9 +3,8 @@ import 'package:dio/dio.dart';
 import 'api_error_parser.dart';
 
 abstract class Failure {
-  final String message;
-
   const Failure(this.message);
+  final String message;
 }
 
 class ServerFailure extends Failure {
@@ -13,7 +12,9 @@ class ServerFailure extends Failure {
 
   factory ServerFailure.fromDioError(DioException e) {
     final failure = failureFromDioException(e);
-    if (failure is ServerFailure) return failure;
+    if (failure is ServerFailure) {
+      return failure;
+    }
     return ServerFailure(failure.message);
   }
 }
@@ -50,9 +51,8 @@ class NetworkFailure extends Failure {
 }
 
 class ValidationFailure extends Failure {
-  final Map<String, String>? fieldErrors;
-
   const ValidationFailure(super.message, {this.fieldErrors});
+  final Map<String, String>? fieldErrors;
 }
 
 /// Maps [DioException] to the appropriate [Failure] (used by [safeCall]).
@@ -82,7 +82,7 @@ Failure failureFromDioException(DioException exception) {
   }
 }
 
-Failure failureFromResponse(int statusCode, dynamic response) {
+Failure failureFromResponse(int statusCode, Object? response) {
   if (statusCode == 404) {
     return const ServerFailure('Resource not found. Please try later.');
   }

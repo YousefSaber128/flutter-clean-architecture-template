@@ -22,7 +22,7 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
   @override
   Future<void> saveProducts(List<ProductEntity> products) async {
     final productBox = Hive.box<ProductEntity>(StorageKeys.product_box);
-    productBox.addAll(
+    await productBox.addAll(
       products.map((e) => (e as ProductModel).toEntity()).toList(),
     );
   }

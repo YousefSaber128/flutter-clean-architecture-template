@@ -9,10 +9,8 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<ProductCubit>()..loadProducts(),
-      child: const ProductGridView(),
-    );
-  }
+  Widget build(BuildContext context) => BlocProvider(
+    create: (context) => sl<ProductCubit>(),
+    child: const ProductGridView(),
+  );
 }

@@ -3,11 +3,11 @@ import '../../../../core/storage/storage_keys.dart';
 import '../../domain/entities/theme_entity.dart';
 
 class ThemeLocalDataSource {
-  final SharedPreferencesService sharedPreferencesService;
   ThemeLocalDataSource(this.sharedPreferencesService);
+  final SharedPreferencesService sharedPreferencesService;
 
   Future saveTheme(ThemeType themeType) async {
-    sharedPreferencesService.saveString(
+    await sharedPreferencesService.saveString(
       StorageKeys.themeKey,
       themeType == ThemeType.dark ? 'dark' : 'light',
     );
