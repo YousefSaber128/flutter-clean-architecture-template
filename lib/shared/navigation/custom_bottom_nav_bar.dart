@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../core/extensions/build_context_extensions.dart';
 import '../../core/extensions/layout_extensions.dart';
-import '../../core/extensions/widget_extensions.dart';
 import 'nav_enum.dart';
 import 'widgets/nav_item_widget.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
-    required this.currentIndex, required this.onTap, super.key,
+    required this.currentIndex,
+    required this.onTap,
+    super.key,
   });
   final int currentIndex;
   final ValueChanged<int> onTap;

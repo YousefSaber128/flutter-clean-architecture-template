@@ -1,4 +1,4 @@
-class PaginatedResponse<T> {
+final class PaginatedResponse<T> {
   const PaginatedResponse({
     required this.data,
     required this.total,

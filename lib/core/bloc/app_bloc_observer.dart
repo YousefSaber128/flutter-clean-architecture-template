@@ -4,7 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../utils/logger.dart';
 
 /// Observes BLoC/Cubit lifecycle and transitions without flooding the debug console.
-class AppBlocObserver extends BlocObserver {
+final class AppBlocObserver extends BlocObserver {
+  const AppBlocObserver();
+
   /// Logs full `state`/`event` via `toString()`. Very noisy; dev only.
   static const bool verboseChanges = false;
 

@@ -7,12 +7,12 @@ extension SpacingExtension on num {
   SizedBox get width => SizedBox(width: w);
   SizedBox get height => SizedBox(height: h);
 
-  Widget get hDivider => SizedBox(
+  SizedBox get hDivider => SizedBox(
     height: h,
     child: Divider(height: 0.h, color: AppColors.divider),
   );
 
-  Widget get vDivider => SizedBox(
+  SizedBox get vDivider => SizedBox(
     width: w,
     child: VerticalDivider(width: 0.w, color: AppColors.divider),
   );

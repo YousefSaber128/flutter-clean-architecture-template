@@ -15,14 +15,14 @@ final router = GoRouter(
   routes: [
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) =>
-          RootPage(navigationShell: navigationShell),
+          RootPage(navigationShell: navigationShell, key: state.pageKey),
       branches: [
         StatefulShellBranch(
           routes: [
             GoRoute(
               path: RouteNames.kRootPage,
               name: 'home',
-              builder: (context, state) => const HomePage(),
+              builder: (context, state) => HomePage(key: state.pageKey),
             ),
           ],
         ),
@@ -31,7 +31,7 @@ final router = GoRouter(
             GoRoute(
               path: RouteNames.kCartPage,
               name: 'cart',
-              builder: (context, state) => const CartPage(),
+              builder: (context, state) => CartPage(key: state.pageKey),
             ),
           ],
         ),
@@ -40,7 +40,7 @@ final router = GoRouter(
             GoRoute(
               path: RouteNames.kProfilePage,
               name: 'profile',
-              builder: (context, state) => const ProfilePage(),
+              builder: (context, state) => ProfilePage(key: state.pageKey),
             ),
           ],
         ),

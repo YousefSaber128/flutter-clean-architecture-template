@@ -9,7 +9,9 @@ class AppProviders extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) => MultiBlocProvider(
-    providers: [BlocProvider(create: (context) => sl<ThemeCubit>())],
+    providers: [
+      BlocProvider<ThemeCubit>(create: (context) => sl<ThemeCubit>()),
+    ],
     child: child,
   );
 }

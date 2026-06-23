@@ -3,7 +3,10 @@ import 'package:dartz/dartz.dart';
 import '../../core/errors/failures.dart';
 
 abstract interface class UseCase<T, Param> {
+  const UseCase();
   Future<Either<Failure, T>> call([Param param]);
 }
 
-class NoParam {}
+sealed class NoParam {
+  const NoParam();
+}

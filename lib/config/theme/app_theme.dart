@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_colors.dart';
 import 'app_fonts.dart';
 
-class AppTheme {
-  AppTheme._();
+sealed class AppTheme {
+  const AppTheme();
 
   static ThemeData get lightTheme => ThemeData(
     useMaterial3: true,

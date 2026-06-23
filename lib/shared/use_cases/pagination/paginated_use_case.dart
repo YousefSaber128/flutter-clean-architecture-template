@@ -5,5 +5,6 @@ import 'pagination_params.dart';
 
 /// A specialized UseCase signature for paginated requests.
 sealed class PaginatedUseCase<T> {
+  const PaginatedUseCase();
   Future<Either<Failure, T>> call({required PaginationParams params});
 }

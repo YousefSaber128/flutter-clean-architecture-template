@@ -5,7 +5,8 @@ import '../di/injection_container.dart';
 import '../storage/shared_prefs_service.dart';
 import '../storage/storage_keys.dart';
 
-class LocalizationService {
+final class LocalizationService {
+  LocalizationService();
   final String translationPath = 'assets/translations';
 
   final List<Locale> supportedLocales = const [Locale('ar'), Locale('en')];
@@ -30,11 +31,13 @@ class LocalizationService {
 
   Future<void> setLocale(BuildContext context, Locale locale) async {
     if (currentLocale != locale) {
-      await context.setLocale(locale);
-      await sl<SharedPreferencesService>().saveString(
-        StorageKeys.locale,
-        locale.languageCode,
-      );
+      await Future.wait([
+        context.setLocale(locale),
+        sl<SharedPreferencesService>().saveString(
+          StorageKeys.locale,
+          locale.languageCode,
+        ),
+      ]);
     }
   }
 

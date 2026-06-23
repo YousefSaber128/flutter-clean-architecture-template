@@ -1,4 +1,5 @@
-class RouteNames {
+sealed class RouteNames {
+  const RouteNames();
   static const kRootPage = '/';
   static const kHomePage = '/home';
   static const kCartPage = '/cart';

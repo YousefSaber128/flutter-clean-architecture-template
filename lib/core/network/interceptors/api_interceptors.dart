@@ -3,8 +3,8 @@ import 'package:logger/logger.dart';
 
 import '../network_info.dart';
 
-class ConnectivityInterceptor extends Interceptor {
-  ConnectivityInterceptor(this.networkInfo);
+final class ConnectivityInterceptor extends Interceptor {
+  const ConnectivityInterceptor(this.networkInfo);
   final NetworkInfo networkInfo;
 
   @override
@@ -27,7 +27,8 @@ class ConnectivityInterceptor extends Interceptor {
   }
 }
 
-class ApiInterceptor extends Interceptor {
+final class ApiInterceptor extends Interceptor {
+  const ApiInterceptor();
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // final token = '';
@@ -39,7 +40,8 @@ class ApiInterceptor extends Interceptor {
   }
 }
 
-class LoggingInterceptor extends Interceptor {
+final class LoggingInterceptor extends Interceptor {
+  LoggingInterceptor();
   final Logger _logger = Logger(
     printer: PrettyPrinter(
       methodCount: 0,

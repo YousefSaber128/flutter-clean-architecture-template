@@ -1,4 +1,5 @@
-class AppStrings {
+sealed class AppStrings {
+  const AppStrings();
   static const String appName = 'app name';
   static const String dev = 'DEV';
   static const String prod = 'PROD';

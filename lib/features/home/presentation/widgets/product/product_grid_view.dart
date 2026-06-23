@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,13 +27,13 @@ class _ProductGridViewState extends State<ProductGridView> {
   bool _isLoadingMore = false;
 
   @override
-  Future<void> initState() async {
+  void initState() {
     super.initState();
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
 
     // Initial fetch
-    await _loadFirstPage();
+    unawaited(_loadFirstPage());
   }
 
   Future<void> _loadFirstPage() async {

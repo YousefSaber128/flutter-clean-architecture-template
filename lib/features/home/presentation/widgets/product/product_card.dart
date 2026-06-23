@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/extensions/build_context_extensions.dart';
 import '../../../../../core/extensions/layout_extensions.dart';
 import '../../../../../core/extensions/spacing_extension.dart';
-import '../../../../../core/extensions/widget_extensions.dart';
 import '../../../../../shared/widgets/custom_network_image.dart';
 import '../../../domain/entities/product/product_entity.dart';
 
@@ -41,11 +41,11 @@ class ProductCard extends StatelessWidget {
             ),
           ),
           8.height,
-          Text(product.title, style: context.text.bodyMedium, maxLines: 2),
+          Text(product.title, style: context.textTheme.bodyMedium, maxLines: 2),
           Text(
             '\$${product.price}',
             style: context.body.copyWith(
-              color: context.colors.primary,
+              color: context.colorScheme.primary,
               fontWeight: FontWeight.w600,
             ),
           ).expanded(),

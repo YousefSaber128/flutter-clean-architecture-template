@@ -6,8 +6,8 @@ part 'env.g.dart';
 sealed class Env {
   const Env();
   @EnviedField(varName: 'API_KEY', obfuscate: true)
-  static String apiKey = _Env.apiKey;
+  static final String apiKey = _Env.apiKey;
 
   @EnviedField(varName: 'BASE_URL', obfuscate: true)
-  static String baseUrl = _Env.baseUrl;
+  static final String baseUrl = _Env.baseUrl;
 }

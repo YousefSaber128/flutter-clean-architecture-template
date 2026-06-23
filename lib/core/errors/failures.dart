@@ -1,13 +1,14 @@
 import 'package:dio/dio.dart';
 
+import '../utils/safe_call.dart';
 import 'api_error_parser.dart';
 
-abstract class Failure {
+sealed class Failure {
   const Failure(this.message);
   final String message;
 }
 
-class ServerFailure extends Failure {
+final class ServerFailure extends Failure {
   const ServerFailure(super.message);
 
   factory ServerFailure.fromDioError(DioException e) {
@@ -19,38 +20,38 @@ class ServerFailure extends Failure {
   }
 }
 
-class CacheFailure extends Failure {
+final class CacheFailure extends Failure {
   const CacheFailure(super.message);
 }
 
-class CacheNotFoundFailure extends CacheFailure {
+final class CacheNotFoundFailure extends CacheFailure {
   const CacheNotFoundFailure([
     super.message = 'Requested data not found in cache.',
   ]);
 }
 
-class AuthFailure extends Failure {
+final class AuthFailure extends Failure {
   const AuthFailure(super.message);
 }
 
-class TokenExpiredFailure extends AuthFailure {
+final class TokenExpiredFailure extends AuthFailure {
   const TokenExpiredFailure([
     super.message = 'Session expired. Please log in again.',
   ]);
 }
 
-class UnauthorizedFailure extends AuthFailure {
+final class UnauthorizedFailure extends AuthFailure {
   const UnauthorizedFailure([String? message])
     : super(message ?? 'You are not authorized to perform this action.');
 }
 
-class NetworkFailure extends Failure {
+final class NetworkFailure extends Failure {
   const NetworkFailure([
     super.message = 'No internet connection. Please check your network.',
   ]);
 }
 
-class ValidationFailure extends Failure {
+final class ValidationFailure extends Failure {
   const ValidationFailure(super.message, {this.fieldErrors});
   final Map<String, String>? fieldErrors;
 }

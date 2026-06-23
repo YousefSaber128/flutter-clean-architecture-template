@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AppColors {
+sealed class AppColors {
+  const AppColors();
   // Primary Colors - Gradient based
   static const Color primary = Color(0xFF6366F1);
   static const Color primaryLight = Color(0xFF818CF8);

@@ -13,8 +13,8 @@ import 'features/theme/presentation/manager/theme_state.dart';
 import 'shared/wrappers/app_providers.dart';
 import 'shared/wrappers/app_wrapper.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) => AppProviders(

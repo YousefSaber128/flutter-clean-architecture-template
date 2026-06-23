@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/extensions/build_context_extensions.dart';
+
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({super.key, this.message, this.size});
 
@@ -8,7 +10,7 @@ class LoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final theme = context.theme;
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
     final indicatorSize = size ?? 40.0;

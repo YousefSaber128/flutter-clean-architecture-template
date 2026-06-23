@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../core/extensions/widget_extensions.dart';
+import '../../core/extensions/build_context_extensions.dart';
 
 class CustomShimmer extends StatelessWidget {
   const CustomShimmer({
-    required this.width, required this.height, super.key,
+    required this.width,
+    required this.height,
+    super.key,
     this.borderRadius = 8.0,
   });
 
   const CustomShimmer.circular({
-    required this.width, required this.height, super.key,
+    required this.width,
+    required this.height,
+    super.key,
     this.borderRadius = 1000.0, // Large enough to be a circle
   });
   final double width;

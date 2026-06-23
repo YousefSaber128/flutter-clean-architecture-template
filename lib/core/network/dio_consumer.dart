@@ -6,7 +6,7 @@ import 'package:flutter_flavor/flutter_flavor.dart';
 import 'api_consumer.dart';
 import 'interceptors/api_interceptors.dart';
 
-class DioConsumer extends ApiConsumer {
+final class DioConsumer extends ApiConsumer {
   DioConsumer({required this.dio}) {
     dio.options.baseUrl = FlavorConfig.instance.variables['baseUrl'];
     dio.interceptors.addAll([

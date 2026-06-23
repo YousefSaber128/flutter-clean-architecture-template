@@ -2,13 +2,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/extensions/build_context_extensions.dart';
 import '../../../core/extensions/spacing_extension.dart';
-import '../../../core/extensions/widget_extensions.dart';
 import '../nav_enum.dart';
 
 class NavItemWidget extends StatelessWidget {
   const NavItemWidget({
-    required this.tab, required this.isSelected, required this.onTap, super.key,
+    required this.tab,
+    required this.isSelected,
+    required this.onTap,
+    super.key,
   });
   final NavEnum tab;
   final bool isSelected;
@@ -18,8 +21,7 @@ class NavItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
+    final colorScheme = context.colorScheme;
     final activeColor = colorScheme.primary;
     final inactiveColor = colorScheme.onSurface.withValues(alpha: 0.5);
 

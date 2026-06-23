@@ -27,10 +27,13 @@ Future<void> initCore() async {
     ..registerAdapter(DimensionsEntityAdapter())
     ..registerAdapter(ReviewEntityAdapter())
     ..registerAdapter(MetaEntityAdapter());
-  await Hive.openBox<ProductEntity>(StorageKeys.product_box);
 
-  await SharedPreferencesService.init();
-  await LocalizationService.initialize();
+  await Future.wait([
+    Hive.openBox<ProductEntity>(StorageKeys.product_box),
+    SharedPreferencesService.init(),
+    LocalizationService.initialize(),
+  ]);
+
   sl
     ..registerLazySingleton(SharedPreferencesService.new)
     ..registerLazySingleton(LocalizationService.new)
