@@ -14,9 +14,8 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
 
   @override
   List<ProductEntity> fetchProducts() {
-    final products = Hive.box<ProductEntity>(StorageKeys.product_box);
-
-    return products.values.toList();
+    final productBox = Hive.box<ProductEntity>(StorageKeys.product_box);
+    return productBox.values.toList();
   }
 
   @override

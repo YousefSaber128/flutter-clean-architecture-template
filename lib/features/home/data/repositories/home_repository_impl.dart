@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/errors/failures.dart';
+import '../../../../core/errors/failures/failure.dart';
 import '../../../../core/utils/safe_call.dart';
 import '../../../../shared/models/pagination/pagination_params.dart';
 import '../../domain/entities/product/product_entity.dart';
@@ -20,11 +20,10 @@ class HomeRepositoryImpl implements HomeRepository {
   Future<Either<Failure, List<ProductEntity>>> getProduct(
     PaginationParams params,
   ) async {
-    final cached = localDataSource.fetchProducts();
     final result = await safeCall(() => remoteDataSource.fetchProduct(params));
-
     return result.fold(
       (failure) {
+        final cached = localDataSource.fetchProducts();
         if (cached.isNotEmpty) {
           return Right(cached);
         }

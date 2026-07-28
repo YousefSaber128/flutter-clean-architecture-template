@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/errors/failures.dart';
+import '../../../../core/errors/failures/failure.dart';
 import '../../domain/entities/profile_entity.dart';
 
 sealed class ProfileRemoteDataSource {

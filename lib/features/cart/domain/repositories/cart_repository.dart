@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/errors/failures.dart';
+import '../../../../core/errors/failures/failure.dart';
 import '../entities/cart_entity.dart';
 
 abstract interface class CartRepository {
