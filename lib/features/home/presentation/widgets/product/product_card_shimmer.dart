@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../../../../core/extensions/spacing_extension.dart';
 import '../../../../../shared/widgets/custom_shimmer.dart';

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class AppWrapper extends StatelessWidget {
   const AppWrapper({required this.child, super.key});

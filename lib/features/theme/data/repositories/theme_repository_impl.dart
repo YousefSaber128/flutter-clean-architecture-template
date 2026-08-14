@@ -10,7 +10,6 @@ class ThemeRepositoryImpl implements ThemeRepository {
   Future<ThemeEntity> getTheme() async => await localDataSource.getTheme();
 
   @override
-  Future saveTheme(ThemeEntity theme) async {
-    await localDataSource.saveTheme(theme.type);
-  }
+  Future<bool> saveTheme(ThemeEntity theme) async =>
+      await localDataSource.saveTheme(theme.type);
 }

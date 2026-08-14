@@ -21,7 +21,7 @@ class HomeRepositoryImpl implements HomeRepository {
     PaginationParams params,
   ) async {
     final result = await safeCall(() => remoteDataSource.fetchProduct(params));
-    return result.fold(
+    return await result.fold(
       (failure) {
         final cached = localDataSource.fetchProducts();
         if (cached.isNotEmpty) {

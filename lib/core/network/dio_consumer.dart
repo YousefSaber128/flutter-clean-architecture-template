@@ -8,7 +8,7 @@ import 'interceptors/api_interceptors.dart';
 
 final class DioConsumer extends ApiConsumer {
   DioConsumer({required this.dio}) {
-    dio.options.baseUrl = FlavorConfig.instance.variables['baseUrl'];
+    dio.options.baseUrl = FlavorConfig.instance.variables['baseUrl'] as String;
     dio.interceptors.addAll([
       // ConnectivityInterceptor(sl<NetworkInfo>()),
       ApiInterceptor(),
@@ -18,7 +18,7 @@ final class DioConsumer extends ApiConsumer {
   final Dio dio;
 
   @override
-  Future delete(
+  Future<dynamic> delete(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
@@ -52,7 +52,7 @@ final class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future patch(
+  Future<dynamic> patch(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
@@ -67,7 +67,7 @@ final class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future post(
+  Future<dynamic> post(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,

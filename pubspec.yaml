@@ -9,6 +9,7 @@ environment:
   sdk: ">=3.11.5 <4.0.0"
 
 dependencies:
+  async: any
   cached_network_image: ^3.4.1
   cloud_firestore: ^6.6.0
   dartz: ^0.10.1
@@ -31,9 +32,11 @@ dependencies:
   google_sign_in: ^7.2.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  http: any
   internet_connection_checker_plus: ^3.1.0
   intl: ^0.20.2
   logger: ^2.7.0
+  material_ui: ^1.0.0
   ota_update: ^7.1.0
   shared_preferences: ^2.5.4
   shimmer: ^3.0.0

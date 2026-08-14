@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 extension PaddingExtension on Widget {
   Padding padding([EdgeInsetsGeometry value = const EdgeInsets.all(8)]) =>

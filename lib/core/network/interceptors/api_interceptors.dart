@@ -59,7 +59,10 @@ final class LoggingInterceptor extends Interceptor {
   }
 
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
+  void onResponse(
+    Response<dynamic> response,
+    ResponseInterceptorHandler handler,
+  ) {
     _logger.d(
       '✅ RESPONSE[${response.statusCode}] => '
       '${response.requestOptions.uri}\nData: ${response.data}',
