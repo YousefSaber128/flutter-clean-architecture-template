@@ -1,5 +1,5 @@
+import '../../../generated/l10n.dart';
 import '../exceptions/facebook_exception.dart';
-import 'failure.dart';
 import 'firebase_error_codes.dart';
 import 'server_failure.dart';
 

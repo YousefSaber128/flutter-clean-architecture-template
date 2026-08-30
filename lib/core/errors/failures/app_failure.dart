@@ -1,4 +1,4 @@
-import '../../../generated/locale_keys.g.dart';
+import '../../../generated/l10n.dart';
 import '../exceptions/app_exception.dart';
 import 'failure.dart';
 import 'server_failure.dart';

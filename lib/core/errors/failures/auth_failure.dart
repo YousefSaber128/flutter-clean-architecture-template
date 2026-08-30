@@ -1,3 +1,4 @@
+import '../../../generated/l10n.dart';
 import '../exceptions/auth_exception.dart';
 import 'failure.dart';
 import 'firebase_error_codes.dart';

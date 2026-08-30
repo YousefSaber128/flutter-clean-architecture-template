@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'failure.dart';
+import '../../../generated/l10n.dart';
 import 'server_failure.dart';
 
 ServerFailure unhandledServerFailure(Exception exception) {

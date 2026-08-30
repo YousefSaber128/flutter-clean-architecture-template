@@ -1,7 +1,8 @@
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../../generated/l10n.dart';
+import '../../extensions/extensions.dart';
 import '../exceptions/google_exception.dart';
-import 'failure.dart';
 import 'firebase_error_codes.dart';
 import 'server_failure.dart';
 

@@ -1,5 +1,5 @@
+import '../../../generated/l10n.dart';
 import '../exceptions/storage_exception.dart';
-import 'failure.dart';
 import 'server_failure.dart';
 
 ServerFailure storageFailure(StorageException exception) {

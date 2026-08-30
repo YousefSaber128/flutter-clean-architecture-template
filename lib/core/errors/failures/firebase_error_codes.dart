@@ -1,3 +1,5 @@
+import '../../../generated/l10n.dart';
+
 String? firebaseAuthErrorCodes(String? code) {
   final l = S.current;
   return switch (code) {
