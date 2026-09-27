@@ -2,7 +2,7 @@ import '../../../generated/l10n.dart';
 import '../exceptions/backend_exception.dart';
 import 'server_failure.dart';
 
-ServerFailure<T> backendServerFailure<T>(BackendException exception) {
+ServerFailure backendServerFailure(BackendException exception) {
   exception.print();
   final code = exception.code;
   final l = S.current;

@@ -8,7 +8,7 @@ import '../failures/failure.dart';
 base class AppException implements Exception {
   const new({this.code, this.message, this.stackTrace});
 
-  factory fromFailure(Failure<dynamic>? failure) => AppException(
+  factory fromFailure(Failure? failure) => AppException(
     code: failure?.code,
     message: failure?.message,
     stackTrace: failure?.stackTrace,

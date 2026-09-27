@@ -11,12 +11,12 @@ import 'google_failure.dart';
 import 'storage_failure.dart';
 import 'unhandled_failure.dart';
 
-final class ServerFailure<T> extends Failure<T> {
+final class ServerFailure extends Failure {
   const new({required super.code, required super.message, super.stackTrace});
 
   factory fromDioError(DioException e) {
     final failure = failureFromDioException(e);
-    if (failure is ServerFailure<T>) {
+    if (failure is ServerFailure) {
       return failure;
     }
     return ServerFailure(

@@ -1,6 +1,6 @@
 import 'failure.dart';
 
-final class CacheFailure extends Failure<dynamic> {
+final class CacheFailure extends Failure {
   const new({required super.code, required super.message, super.stackTrace});
 }
 

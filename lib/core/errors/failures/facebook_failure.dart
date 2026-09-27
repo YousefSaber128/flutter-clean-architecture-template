@@ -3,7 +3,7 @@ import '../exceptions/facebook_exception.dart';
 import 'firebase_error_codes.dart';
 import 'server_failure.dart';
 
-ServerFailure<T> facebookFailure<T>(FacebookException exception) {
+ServerFailure facebookFailure(FacebookException exception) {
   exception.print();
   final code = exception.code;
   final l = S.current;

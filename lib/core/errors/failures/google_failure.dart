@@ -6,7 +6,7 @@ import '../exceptions/google_exception.dart';
 import 'firebase_error_codes.dart';
 import 'server_failure.dart';
 
-ServerFailure<T> googleFailure<T>(GoogleException exception) {
+ServerFailure googleFailure(GoogleException exception) {
   exception.print();
   final code = exception.code;
   final l = S.current;

@@ -3,7 +3,7 @@ import '../exceptions/app_exception.dart';
 import 'failure.dart';
 import 'server_failure.dart';
 
-ServerFailure<T> appServerFailure<T>(AppException exception) {
+ServerFailure appServerFailure(AppException exception) {
   exception.print();
   final l = S.current;
   return ServerFailure(
@@ -14,7 +14,7 @@ ServerFailure<T> appServerFailure<T>(AppException exception) {
   );
 }
 
-LocalFailure<T> appLocalFailure<T>(AppException exception) {
+LocalFailure appLocalFailure(AppException exception) {
   exception.print();
   final l = S.current;
   return LocalFailure(
