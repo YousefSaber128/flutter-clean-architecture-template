@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_ui/material_ui.dart';
 
 class CustomNetworkImage extends StatelessWidget {
-  const CustomNetworkImage({
+  const new({
     required this.imageUrl, super.key,
     this.width,
     this.height,

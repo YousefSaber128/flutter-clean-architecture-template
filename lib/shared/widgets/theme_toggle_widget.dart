@@ -7,7 +7,7 @@ import '../../features/theme/presentation/manager/theme_cubit.dart';
 import '../../features/theme/presentation/manager/theme_state.dart';
 
 class ThemeToggleWidget extends StatelessWidget {
-  const ThemeToggleWidget({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) => BlocBuilder<ThemeCubit, ThemeState>(

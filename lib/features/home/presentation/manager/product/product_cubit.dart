@@ -10,7 +10,7 @@ import 'product_state.dart';
 
 class ProductCubit extends Cubit<ProductState>
     with CancelableSafeCubitMixin<ProductState> {
-  ProductCubit(this.getProductUseCase) : super(ProductInitial()) {
+  new(this.getProductUseCase) : super(ProductInitial()) {
     unawaited(loadProducts());
   }
   final GetProductUseCase getProductUseCase;

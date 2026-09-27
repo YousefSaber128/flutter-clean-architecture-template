@@ -2,7 +2,7 @@ import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 
 final class ResponseEntity {
-  const ResponseEntity({
+  const new({
     this.body,
     this.statusCode,
     this.bodyBytes,
@@ -11,7 +11,7 @@ final class ResponseEntity {
     this.persistentConnection,
   });
 
-  factory ResponseEntity.fromHttpResponse(http.Response response) =>
+  factory fromHttpResponse(http.Response response) =>
       ResponseEntity(
         statusCode: response.statusCode,
         body: response.body,

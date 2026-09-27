@@ -4,7 +4,7 @@ import '../../core/di/injection_container.dart';
 import '../../core/localization/localization_service.dart';
 
 class LanguageToggleWidget extends StatelessWidget {
-  const LanguageToggleWidget({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) => IconButton(

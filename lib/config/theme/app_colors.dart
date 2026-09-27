@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
 sealed class AppColors {
-  const AppColors();
+  const new();
   // Primary Colors - Gradient based
   static const Color primary = Color(0xFF6366F1);
   static const Color primaryLight = Color(0xFF818CF8);

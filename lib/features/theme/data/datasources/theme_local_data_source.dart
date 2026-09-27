@@ -3,7 +3,7 @@ import '../../../../core/storage/storage_keys.dart';
 import '../../domain/entities/theme_entity.dart';
 
 class ThemeLocalDataSource {
-  ThemeLocalDataSource(this.sharedPreferencesService);
+  new(this.sharedPreferencesService);
   final SharedPreferencesService sharedPreferencesService;
 
   Future<bool> saveTheme(ThemeType themeType) async =>

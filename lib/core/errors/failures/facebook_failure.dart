@@ -3,7 +3,7 @@ import '../exceptions/facebook_exception.dart';
 import 'firebase_error_codes.dart';
 import 'server_failure.dart';
 
-ServerFailure facebookFailure(FacebookException exception) {
+ServerFailure<T> facebookFailure<T>(FacebookException exception) {
   exception.print();
   final code = exception.code;
   final l = S.current;
@@ -14,5 +14,6 @@ ServerFailure facebookFailure(FacebookException exception) {
         exception.message ??
         l.unknownFacebookErrorMessage,
     stackTrace: exception.stackTrace,
+    // fullDetails: exception.fullDetails,
   );
 }

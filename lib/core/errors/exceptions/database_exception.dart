@@ -10,7 +10,7 @@ import 'app_exception.dart';
 
 @immutable
 final class DatabaseException extends AppException {
-  const DatabaseException({
+  const new({
     super.code,
     super.message,
     super.stackTrace,
@@ -23,7 +23,7 @@ final class DatabaseException extends AppException {
     this.port,
   });
 
-  factory DatabaseException.fromClient(
+  factory fromClient(
     ClientException? exception, [
     StackTrace? stackTrace,
   ]) => DatabaseException(
@@ -32,7 +32,7 @@ final class DatabaseException extends AppException {
     uri: exception?.uri,
   );
 
-  factory DatabaseException.fromSocket(
+  factory fromSocket(
     SocketException? exception, [
     StackTrace? stackTrace,
   ]) => DatabaseException(
@@ -43,7 +43,7 @@ final class DatabaseException extends AppException {
     port: exception?.port,
   );
 
-  factory DatabaseException.fromPlatform(
+  factory fromPlatform(
     PlatformException? exception, [
     StackTrace? stackTrace,
   ]) => DatabaseException(
@@ -55,7 +55,7 @@ final class DatabaseException extends AppException {
     details: exception?.details,
   );
 
-  factory DatabaseException.fromFirebase(
+  factory fromFirebase(
     FirebaseException? exception, [
     StackTrace? stackTrace,
   ]) => DatabaseException(
@@ -65,7 +65,7 @@ final class DatabaseException extends AppException {
     plugin: exception?.plugin,
   );
 
-  factory DatabaseException.fromSupabasePostgrest(
+  factory fromSupabasePostgrest(
     PostgrestException? exception, [
     StackTrace? stackTrace,
   ]) => DatabaseException(
@@ -76,7 +76,7 @@ final class DatabaseException extends AppException {
     details: exception?.details,
   );
 
-  factory DatabaseException.fromSupabaseRealtimeSubscribe(
+  factory fromSupabaseRealtimeSubscribe(
     RealtimeSubscribeException? exception, [
     StackTrace? stackTrace,
   ]) => DatabaseException(
@@ -85,7 +85,7 @@ final class DatabaseException extends AppException {
     details: exception?.details,
   );
 
-  factory DatabaseException.unhandled(
+  factory unhandled(
     Exception? exception, [
     StackTrace? stackTrace,
   ]) =>

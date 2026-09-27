@@ -1,15 +1,13 @@
-import 'package:dartz/dartz.dart';
-
-import '../../../../core/errors/failures/failure.dart';
+import '../../../../core/helpers/result.dart';
 import '../../domain/entities/profile_entity.dart';
 
 sealed class ProfileRemoteDataSource {
-  Future<Either<Failure, ProfileEntity>> fetchProfile();
+  Future<Result<ProfileEntity>> fetchProfile();
 }
 
 class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   @override
-  Future<Either<Failure, ProfileEntity>> fetchProfile() {
+  Future<Result<ProfileEntity>> fetchProfile() {
     // TODO(Anyone): implement API call
     throw UnimplementedError();
   }

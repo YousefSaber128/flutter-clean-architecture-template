@@ -5,14 +5,14 @@ import 'app_exception.dart';
 
 @immutable
 final class StorageException extends AppException {
-  const StorageException({
+  const new({
     super.code,
     super.message,
     super.stackTrace,
     this.error,
   });
 
-  factory StorageException.fromSupabase(
+  factory fromSupabase(
     supabase.StorageException? exception, [
     StackTrace? stackTrace,
   ]) => StorageException(

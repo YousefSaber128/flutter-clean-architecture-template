@@ -6,7 +6,7 @@ import 'app_exception.dart';
 
 @immutable
 final class GoogleException extends AppException {
-  const GoogleException({
+  const new({
     super.code,
     super.message,
     super.stackTrace,
@@ -18,7 +18,7 @@ final class GoogleException extends AppException {
     this.details,
   });
 
-  factory GoogleException.fromGoogleSignIn(
+  factory fromGoogleSignIn(
     GoogleSignInException? exception, [
     StackTrace? stackTrace,
   ]) => GoogleException(
@@ -28,7 +28,7 @@ final class GoogleException extends AppException {
     details: exception?.details,
   );
 
-  factory GoogleException.fromFirebaseAuth(
+  factory fromFirebaseAuth(
     FirebaseAuthException? exception, [
     StackTrace? stackTrace,
   ]) => GoogleException(

@@ -1,5 +1,5 @@
 final class PaginatedResponse<T> {
-  const PaginatedResponse({
+  const new({
     required this.data,
     required this.total,
     required this.limit,

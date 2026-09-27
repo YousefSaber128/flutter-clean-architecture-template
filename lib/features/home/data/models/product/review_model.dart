@@ -1,7 +1,7 @@
 import '../../../domain/entities/product/product_entity.dart';
 
 class ReviewModel extends ReviewEntity {
-  const ReviewModel({
+  const new({
     required super.rating,
     required super.comment,
     required super.date,
@@ -9,7 +9,7 @@ class ReviewModel extends ReviewEntity {
     required super.reviewerEmail,
   });
 
-  factory ReviewModel.fromJson(Map<String, dynamic> json) => ReviewModel(
+  factory fromJson(Map<String, dynamic> json) => ReviewModel(
     rating: json['rating'] as int? ?? 0,
     comment: json['comment'] as String? ?? '',
     date: json['date'] != null

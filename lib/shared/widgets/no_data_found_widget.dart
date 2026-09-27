@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
 class NoDataFoundWidget extends StatefulWidget {
-  const NoDataFoundWidget({
+  const new({
     super.key,
     this.title,
     this.message,

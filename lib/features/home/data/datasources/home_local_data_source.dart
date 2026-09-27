@@ -10,7 +10,7 @@ abstract class HomeLocalDataSource {
 }
 
 class HomeLocalDataSourceImpl implements HomeLocalDataSource {
-  HomeLocalDataSourceImpl();
+  new();
 
   @override
   List<ProductEntity> fetchProducts() {

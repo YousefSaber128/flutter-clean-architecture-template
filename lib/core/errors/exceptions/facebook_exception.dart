@@ -6,7 +6,7 @@ import 'app_exception.dart';
 
 @immutable
 final class FacebookException extends AppException {
-  const FacebookException({
+  const new({
     super.code,
     super.message,
     super.stackTrace,
@@ -18,7 +18,7 @@ final class FacebookException extends AppException {
     this.details,
   });
 
-  factory FacebookException.fromPlatform(
+  factory fromPlatform(
     PlatformException? exception, [
     StackTrace? stackTrace,
   ]) {
@@ -33,7 +33,7 @@ final class FacebookException extends AppException {
     );
   }
 
-  factory FacebookException.fromFirebaseAuth(
+  factory fromFirebaseAuth(
     FirebaseAuthException? exception, [
     StackTrace? stackTrace,
   ]) => FacebookException(

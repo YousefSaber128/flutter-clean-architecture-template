@@ -1,15 +1,13 @@
-import 'package:dartz/dartz.dart';
-
-import '../../../../core/errors/failures/failure.dart';
+import '../../../../core/helpers/result.dart';
 import '../../../../shared/use_cases/use_case.dart';
 import '../entities/profile_entity.dart';
 import '../repositories/profile_repository.dart';
 
 class GetProfileUseCase implements UseCase<ProfileEntity, NoParam> {
-  GetProfileUseCase(this.repository);
+  new(this.repository);
   final ProfileRepository repository;
 
   @override
-  Future<Either<Failure, ProfileEntity>> call([NoParam? param]) =>
+  Future<Result<ProfileEntity>> call([NoParam? param]) =>
       repository.getProfile();
 }

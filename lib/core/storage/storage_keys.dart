@@ -1,5 +1,5 @@
 sealed class StorageKeys {
-  const StorageKeys();
+  const new();
   static const locale = 'locale';
   static const token = 'token';
   static const refreshToken = 'refresh_token';

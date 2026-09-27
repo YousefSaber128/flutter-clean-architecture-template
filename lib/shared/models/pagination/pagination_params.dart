@@ -1,5 +1,5 @@
 final class PaginationParams {
-  const PaginationParams({this.limit = 10, this.skip = 0});
+  const new({this.limit = 10, this.skip = 0});
   final int limit;
   final int skip;
 

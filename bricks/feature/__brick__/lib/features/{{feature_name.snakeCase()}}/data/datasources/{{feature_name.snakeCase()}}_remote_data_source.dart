@@ -14,7 +14,7 @@ class {{feature_name.pascalCase()}}RemoteDataSourceImpl
 
   @override
   Future<List<{{entity_name.pascalCase()}}Model>> fetch{{entity_name.pascalCase()}}s() async {
-    // TODO: replace ApiEndpoints.products with the correct endpoint
+    // TODO(Anyone): replace ApiEndpoints.products with the correct endpoint
     final response = await _dio.get(ApiEndpoints.products);
     return (response as List)
         .map((e) => {{entity_name.pascalCase()}}Model.fromJson(e as Map<String, dynamic>))

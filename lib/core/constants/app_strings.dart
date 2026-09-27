@@ -1,5 +1,5 @@
 sealed class AppStrings {
-  const AppStrings();
+  const new();
   static const String appName = 'app name';
   static const String dev = 'DEV';
   static const String prod = 'PROD';

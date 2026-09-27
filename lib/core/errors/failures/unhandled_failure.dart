@@ -3,7 +3,7 @@ import 'dart:developer';
 import '../../../generated/l10n.dart';
 import 'server_failure.dart';
 
-ServerFailure unhandledServerFailure(Exception exception) {
+ServerFailure<T> unhandledServerFailure<T>(Exception exception) {
   log(
     'UnhandledException(\n  message: $exception,\n)',
     time: DateTime.now(),

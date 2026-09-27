@@ -1,10 +1,8 @@
-import 'package:dartz/dartz.dart';
-
-import '../../../core/errors/failures/failure.dart';
+import '../../../core/helpers/result.dart';
 import 'pagination_params.dart';
 
 /// A specialized UseCase signature for paginated requests.
 sealed class PaginatedUseCase<T> {
-  const PaginatedUseCase();
-  Future<Either<Failure, T>> call({required PaginationParams params});
+  const new();
+  Future<Result<T>> call({required PaginationParams params});
 }

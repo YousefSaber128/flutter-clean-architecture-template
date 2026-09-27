@@ -14,7 +14,7 @@ import 'shared/wrappers/app_providers.dart';
 import 'shared/wrappers/app_wrapper.dart';
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) => AppProviders(

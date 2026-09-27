@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class CartEntity extends Equatable {
-  const CartEntity({required this.id});
+  const new({required this.id});
   final String id;
 
   @override

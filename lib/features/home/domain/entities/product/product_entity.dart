@@ -4,7 +4,7 @@ part 'product_entity.g.dart';
 
 @HiveType(typeId: 0)
 class ProductEntity extends Equatable {
-  const ProductEntity({
+  const new({
     required this.id,
     required this.title,
     required this.description,
@@ -102,7 +102,7 @@ class ProductEntity extends Equatable {
 
 @HiveType(typeId: 1)
 class DimensionsEntity extends Equatable {
-  const DimensionsEntity({
+  const new({
     required this.width,
     required this.height,
     required this.depth,
@@ -120,7 +120,7 @@ class DimensionsEntity extends Equatable {
 
 @HiveType(typeId: 2)
 class ReviewEntity extends Equatable {
-  const ReviewEntity({
+  const new({
     required this.rating,
     required this.comment,
     required this.date,
@@ -150,7 +150,7 @@ class ReviewEntity extends Equatable {
 
 @HiveType(typeId: 3)
 class MetaEntity extends Equatable {
-  const MetaEntity({
+  const new({
     required this.createdAt,
     required this.updatedAt,
     required this.barcode,

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class ProfileEntity extends Equatable {
-  const ProfileEntity({required this.id});
+  const new({required this.id});
   final String id;
 
   @override

@@ -1,15 +1,13 @@
-import 'package:dartz/dartz.dart';
-
-import '../../../../core/errors/failures/failure.dart';
+import '../../../../core/helpers/result.dart';
 import '../../domain/entities/cart_entity.dart';
 
 sealed class CartRemoteDataSource {
-  Future<Either<Failure, CartEntity>> fetchCart();
+  Future<Result<CartEntity>> fetchCart();
 }
 
 class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   @override
-  Future<Either<Failure, CartEntity>> fetchCart() {
+  Future<Result<CartEntity>> fetchCart() {
     // TODO(Anyone): implement API call
     throw UnimplementedError();
   }

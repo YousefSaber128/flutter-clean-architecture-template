@@ -8,7 +8,7 @@ import '../../domain/usecases/save_theme_usecase.dart';
 import 'theme_state.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
-  ThemeCubit({required this.getThemeUseCase, required this.saveThemeUseCase})
+  new({required this.getThemeUseCase, required this.saveThemeUseCase})
     : super(ThemeInitial()) {
     unawaited(_loadData());
   }

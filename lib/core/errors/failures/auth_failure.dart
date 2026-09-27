@@ -4,31 +4,27 @@ import 'failure.dart';
 import 'firebase_error_codes.dart';
 import 'server_failure.dart';
 
-final class AuthFailure extends Failure {
-  const AuthFailure({
-    required super.code,
-    required super.message,
-    super.stackTrace,
-  });
+final class AuthFailure<T> extends Failure<T> {
+  const new({required super.code, required super.message, super.stackTrace});
 }
 
-final class TokenExpiredFailure extends AuthFailure {
-  const TokenExpiredFailure({
+final class TokenExpiredFailure<T> extends AuthFailure<T> {
+  const new({
     super.code = '401',
     super.message = 'Session expired. Please log in again.',
     super.stackTrace,
   });
 }
 
-final class UnauthorizedFailure extends AuthFailure {
-  const UnauthorizedFailure({
+final class UnauthorizedFailure<T> extends AuthFailure<T> {
+  const new({
     super.code = '403',
     super.message = 'You are not authorized to perform this action.',
     super.stackTrace,
   });
 }
 
-ServerFailure authFailure(AuthException exception) {
+ServerFailure<T> authFailure<T>(AuthException exception) {
   exception.print();
   final code = exception.code;
   final l = S.current;
@@ -39,5 +35,6 @@ ServerFailure authFailure(AuthException exception) {
         exception.message ??
         l.unknownAuthErrorMessage,
     stackTrace: exception.stackTrace,
+    // fullDetails: exception.fullDetails,
   );
 }

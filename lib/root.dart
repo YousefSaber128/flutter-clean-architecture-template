@@ -4,7 +4,7 @@ import 'package:material_ui/material_ui.dart';
 import 'shared/navigation/custom_bottom_nav_bar.dart';
 
 class RootPage extends StatelessWidget {
-  const RootPage({required this.navigationShell, super.key});
+  const new({required this.navigationShell, super.key});
   final StatefulNavigationShell navigationShell;
 
   @override

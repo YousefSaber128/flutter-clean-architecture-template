@@ -7,20 +7,20 @@ import 'app_exception.dart';
 
 @immutable
 final class BackendException extends AppException {
-  const BackendException({
+  const new({
     super.code,
     super.message,
     super.stackTrace,
     this.uri,
   });
 
-  factory BackendException.fromResponse(ResponseEntity? response) =>
+  factory fromResponse(ResponseEntity? response) =>
       BackendException(
         code: response?.statusCode.toString(),
         message: response?.body,
       );
 
-  factory BackendException.fromHttp(HttpException? exception) =>
+  factory fromHttp(HttpException? exception) =>
       BackendException(message: exception?.message, uri: exception?.uri);
 
   final Uri? uri;

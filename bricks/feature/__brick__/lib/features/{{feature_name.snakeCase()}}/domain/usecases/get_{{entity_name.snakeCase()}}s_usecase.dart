@@ -12,7 +12,7 @@ class Get{{entity_name.pascalCase()}}sUseCase
   Get{{entity_name.pascalCase()}}sUseCase(this.repository);
 
   @override
-  Future<Either<Failure, List<{{entity_name.pascalCase()}}Entity>>> call(
+  Future<Result<List<{{entity_name.pascalCase()}}Entity>>> call(
       [NoParam? param]) async {
     return repository.get{{entity_name.pascalCase()}}s();
   }

@@ -11,16 +11,12 @@ import 'google_failure.dart';
 import 'storage_failure.dart';
 import 'unhandled_failure.dart';
 
-final class ServerFailure extends Failure {
-  const ServerFailure({
-    required super.code,
-    required super.message,
-    super.stackTrace,
-  });
+final class ServerFailure<T> extends Failure<T> {
+  const new({required super.code, required super.message, super.stackTrace});
 
-  factory ServerFailure.fromDioError(DioException e) {
+  factory fromDioError(DioException e) {
     final failure = failureFromDioException(e);
-    if (failure is ServerFailure) {
+    if (failure is ServerFailure<T>) {
       return failure;
     }
     return ServerFailure(
@@ -30,19 +26,19 @@ final class ServerFailure extends Failure {
     );
   }
 
-  factory ServerFailure.app(AppException e) => appServerFailure(e);
+  factory app(AppException e) => appServerFailure(e);
 
-  factory ServerFailure.auth(AuthException e) => authFailure(e);
+  factory auth(AuthException e) => authFailure(e);
 
-  factory ServerFailure.database(DatabaseException e) => databaseFailure(e);
+  factory database(DatabaseException e) => databaseFailure(e);
 
-  factory ServerFailure.storage(StorageException e) => storageFailure(e);
+  factory storage(StorageException e) => storageFailure(e);
 
-  factory ServerFailure.google(GoogleException e) => googleFailure(e);
+  factory google(GoogleException e) => googleFailure(e);
 
-  factory ServerFailure.facebook(FacebookException e) => facebookFailure(e);
+  factory facebook(FacebookException e) => facebookFailure(e);
 
-  factory ServerFailure.backend(BackendException e) => backendServerFailure(e);
+  factory backend(BackendException e) => backendServerFailure(e);
 
-  factory ServerFailure.unhandled(Exception e) => unhandledServerFailure(e);
+  factory unhandled(Exception e) => unhandledServerFailure(e);
 }

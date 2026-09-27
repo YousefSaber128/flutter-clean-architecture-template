@@ -2,7 +2,7 @@ import '../entities/theme_entity.dart';
 import '../repositories/theme_repository.dart';
 
 class SaveThemeUseCase {
-  SaveThemeUseCase(this.repository);
+  new(this.repository);
   final ThemeRepository repository;
 
   Future<void> call(ThemeEntity theme) async {

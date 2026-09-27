@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 final class SharedPreferencesService {
-  const SharedPreferencesService();
+  const new();
   static SharedPreferences? _preferences;
 
   static Future<void> init() async {

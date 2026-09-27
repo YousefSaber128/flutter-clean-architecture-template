@@ -7,7 +7,7 @@ import 'nav_enum.dart';
 import 'widgets/nav_item_widget.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
-  const CustomBottomNavBar({
+  const new({
     required this.currentIndex,
     required this.onTap,
     super.key,

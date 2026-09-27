@@ -5,7 +5,7 @@ import '../../../../../core/extensions/spacing_extension.dart';
 import '../../../../../shared/widgets/custom_shimmer.dart';
 
 class ProductCardShimmer extends StatelessWidget {
-  const ProductCardShimmer({super.key, this.width = 140});
+  const new({super.key, this.width = 140});
 
   final double width;
 

@@ -13,7 +13,7 @@ class {{feature_name.pascalCase()}}RepositoryImpl
   {{feature_name.pascalCase()}}RepositoryImpl(this.remoteDataSource);
 
   @override
-  Future<Either<Failure, List<{{entity_name.pascalCase()}}Entity>>> get{{entity_name.pascalCase()}}s() {
+  Future<Result<List<{{entity_name.pascalCase()}}Entity>>> get{{entity_name.pascalCase()}}s() {
     return safeCall(() => remoteDataSource.fetch{{entity_name.pascalCase()}}s());
   }
 }

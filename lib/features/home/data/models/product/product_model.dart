@@ -4,7 +4,7 @@ import 'meta_model.dart';
 import 'review_model.dart';
 
 class ProductModel extends ProductEntity {
-  const ProductModel({
+  const new({
     required super.id,
     required super.title,
     required super.description,
@@ -29,7 +29,7 @@ class ProductModel extends ProductEntity {
     super.brand,
   });
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
+  factory fromJson(Map<String, dynamic> json) => ProductModel(
     id: json['id'] as int? ?? 0,
     title: json['title'] as String? ?? '',
     description: json['description'] as String? ?? '',

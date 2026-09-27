@@ -4,7 +4,7 @@ part 'env.g.dart';
 
 @Envied(path: 'lib/config/env/.env')
 sealed class Env {
-  const Env();
+  const new();
   @EnviedField(varName: 'API_KEY', obfuscate: true)
   static final String apiKey = _Env.apiKey;
 

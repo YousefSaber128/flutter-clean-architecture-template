@@ -1,14 +1,14 @@
 import '../../../domain/entities/product/product_entity.dart';
 
 class MetaModel extends MetaEntity {
-  const MetaModel({
+  const new({
     required super.createdAt,
     required super.updatedAt,
     required super.barcode,
     required super.qrCode,
   });
 
-  factory MetaModel.fromJson(Map<String, dynamic> json) => MetaModel(
+  factory fromJson(Map<String, dynamic> json) => MetaModel(
     createdAt: json['createdAt'] != null
         ? (DateTime.tryParse(json['createdAt'] as String) ?? DateTime.now())
         : DateTime.now(),

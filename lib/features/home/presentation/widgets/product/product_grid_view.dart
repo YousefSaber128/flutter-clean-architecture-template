@@ -15,7 +15,7 @@ import '../../manager/product/product_state.dart';
 import 'product_card.dart';
 
 class ProductGridView extends StatefulWidget {
-  const ProductGridView({super.key});
+  const new({super.key});
 
   @override
   State<ProductGridView> createState() => _ProductGridViewState();

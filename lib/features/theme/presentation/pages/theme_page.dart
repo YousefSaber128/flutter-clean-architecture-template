@@ -5,7 +5,7 @@ import '../manager/theme_cubit.dart';
 import '../manager/theme_state.dart';
 
 class ThemePage extends StatelessWidget {
-  const ThemePage({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(

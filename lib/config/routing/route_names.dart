@@ -1,5 +1,5 @@
 sealed class RouteNames {
-  const RouteNames();
+  const new();
   static const kRootPage = '/';
   static const kHomePage = '/home';
   static const kCartPage = '/cart';

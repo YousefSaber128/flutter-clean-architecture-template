@@ -1,5 +1,5 @@
 abstract class ApiConsumer {
-  const ApiConsumer();
+  const new();
   Future<Map<String, dynamic>> get(
     String path, {
     Object? data,

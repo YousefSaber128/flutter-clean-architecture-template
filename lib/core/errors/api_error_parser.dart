@@ -1,7 +1,7 @@
 import '../entities/response_entity.dart';
 
 sealed class ApiErrorParser {
-  const ApiErrorParser();
+  const new();
 
   static ResponseEntity parseResponse(Object? response) {
     if (response == null) {

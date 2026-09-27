@@ -1,4 +1,4 @@
 sealed class AppFonts {
-  const AppFonts();
+  const new();
   static const String appFontFamily = 'TheYearofHandicrafts';
 }

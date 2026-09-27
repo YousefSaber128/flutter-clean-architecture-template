@@ -3,7 +3,7 @@ import 'package:material_ui/material_ui.dart';
 import '../../core/extensions/build_context_extensions.dart';
 
 class LoadingWidget extends StatelessWidget {
-  const LoadingWidget({super.key, this.message, this.size});
+  const new({super.key, this.message, this.size});
 
   final String? message;
   final double? size;

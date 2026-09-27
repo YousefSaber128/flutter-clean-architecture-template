@@ -6,9 +6,9 @@ import '../failures/failure.dart';
 
 @immutable
 base class AppException implements Exception {
-  const AppException({this.code, this.message, this.stackTrace});
+  const new({this.code, this.message, this.stackTrace});
 
-  factory AppException.fromFailure(Failure? failure) => AppException(
+  factory fromFailure(Failure<dynamic>? failure) => AppException(
     code: failure?.code,
     message: failure?.message,
     stackTrace: failure?.stackTrace,

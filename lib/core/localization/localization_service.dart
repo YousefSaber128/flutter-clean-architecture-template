@@ -6,7 +6,7 @@ import '../storage/shared_prefs_service.dart';
 import '../storage/storage_keys.dart';
 
 final class LocalizationService {
-  LocalizationService();
+  new();
   final String translationPath = 'assets/translations';
 
   final List<Locale> supportedLocales = const [Locale('ar'), Locale('en')];

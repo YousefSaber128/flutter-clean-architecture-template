@@ -2,7 +2,7 @@ import '../../../generated/l10n.dart';
 import '../exceptions/backend_exception.dart';
 import 'server_failure.dart';
 
-ServerFailure backendServerFailure(BackendException exception) {
+ServerFailure<T> backendServerFailure<T>(BackendException exception) {
   exception.print();
   final code = exception.code;
   final l = S.current;
@@ -22,5 +22,6 @@ ServerFailure backendServerFailure(BackendException exception) {
     code: code ?? l.unknownBackendErrorCode,
     message: updatedMessage,
     stackTrace: exception.stackTrace,
+    // fullDetails: exception.fullDetails,
   );
 }

@@ -1,15 +1,12 @@
-import 'package:dartz/dartz.dart';
-
-import '../../../../core/errors/failures/failure.dart';
+import '../../../../core/helpers/result.dart';
 import '../../domain/entities/profile_entity.dart';
 import '../../domain/repositories/profile_repository.dart';
 import '../datasources/profile_remote_data_source.dart';
 
 class ProfileRepositoryImpl implements ProfileRepository {
-  ProfileRepositoryImpl(this.remoteDataSource);
+  new(this.remoteDataSource);
   final ProfileRemoteDataSource remoteDataSource;
 
   @override
-  Future<Either<Failure, ProfileEntity>> getProfile() =>
-      remoteDataSource.fetchProfile();
+  Future<Result<ProfileEntity>> getProfile() => remoteDataSource.fetchProfile();
 }

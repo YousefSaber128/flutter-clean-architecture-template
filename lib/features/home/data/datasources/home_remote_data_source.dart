@@ -9,7 +9,7 @@ sealed class HomeRemoteDataSource {
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
-  HomeRemoteDataSourceImpl(this._dio);
+  new(this._dio);
   final ApiConsumer _dio;
 
   @override

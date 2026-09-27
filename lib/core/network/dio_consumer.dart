@@ -7,7 +7,7 @@ import 'api_consumer.dart';
 import 'interceptors/api_interceptors.dart';
 
 final class DioConsumer extends ApiConsumer {
-  DioConsumer({required this.dio}) {
+  new({required this.dio}) {
     dio.options.baseUrl = FlavorConfig.instance.variables['baseUrl'] as String;
     dio.interceptors.addAll([
       // ConnectivityInterceptor(sl<NetworkInfo>()),

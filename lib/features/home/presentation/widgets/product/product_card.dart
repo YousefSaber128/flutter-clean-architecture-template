@@ -8,7 +8,7 @@ import '../../../../../shared/widgets/custom_network_image.dart';
 import '../../../domain/entities/product/product_entity.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({
+  const new({
     required this.product,
     required this.onPress,
     super.key,

@@ -4,7 +4,7 @@ import 'package:material_ui/material_ui.dart';
 import 'app_fonts.dart';
 
 sealed class AppTextTheme {
-  const AppTextTheme();
+  const new();
   static TextTheme light = TextTheme(
     titleLarge: TextStyle(
       fontSize: 20.sp,

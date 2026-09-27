@@ -7,7 +7,7 @@ import '../manager/profile_cubit.dart';
 import '../manager/profile_state.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(

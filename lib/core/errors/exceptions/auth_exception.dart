@@ -7,7 +7,7 @@ import 'app_exception.dart';
 
 @immutable
 final class AuthException extends AppException {
-  const AuthException({
+  const new({
     super.code,
     super.message,
     super.stackTrace,
@@ -20,7 +20,7 @@ final class AuthException extends AppException {
     this.statusCode,
   });
 
-  factory AuthException.fromPlatform(
+  factory fromPlatform(
     PlatformException? exception, [
     StackTrace? stackTrace,
   ]) => AuthException(
@@ -32,7 +32,7 @@ final class AuthException extends AppException {
     details: exception?.details,
   );
 
-  factory AuthException.fromFirebaseAuth(
+  factory fromFirebaseAuth(
     FirebaseAuthException? exception, [
     StackTrace? stackTrace,
   ]) => AuthException(
@@ -46,7 +46,7 @@ final class AuthException extends AppException {
     credential: exception?.credential,
   );
 
-  factory AuthException.fromSupabaseAuth(
+  factory fromSupabaseAuth(
     supabase.AuthException? exception, [
     StackTrace? stackTrace,
   ]) => AuthException(

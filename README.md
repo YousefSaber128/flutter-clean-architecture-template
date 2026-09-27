@@ -46,7 +46,7 @@
          └──────────────────────────────┘
 ```
 
-**Data flow:** `UI → Cubit → UseCase → Repository → DataSource → Either<Failure, T> → emit State`
+**Data flow:** `UI → Cubit → UseCase → Repository → DataSource → Result<T> → emit State`
 
 ```
 lib/
@@ -137,7 +137,7 @@ After `mason make feature ...`, wire it up in **3 steps**:
 
 **Pattern checklist** (follow `home`):
 
-- [ ] `UseCase<T, Param>` returns `Either<Failure, T>`
+- [ ] `UseCase<T, Param>` returns `Result<T>`
 - [ ] `RepositoryImpl` wraps calls with `safeCall`
 - [ ] `Cubit` folds `Either` → `Loading / Loaded / Error`
 - [ ] Page uses `BlocProvider(create: (_) => sl<YourCubit>())`

@@ -7,7 +7,7 @@ import '../../../core/extensions/spacing_extension.dart';
 import '../nav_enum.dart';
 
 class NavItemWidget extends StatelessWidget {
-  const NavItemWidget({
+  const new({
     required this.tab,
     required this.isSelected,
     required this.onTap,

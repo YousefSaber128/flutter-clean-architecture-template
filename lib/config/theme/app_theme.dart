@@ -6,7 +6,7 @@ import 'app_colors.dart';
 import 'app_fonts.dart';
 
 sealed class AppTheme {
-  const AppTheme();
+  const new();
 
   static ThemeData get lightTheme => ThemeData(
     useMaterial3: true,

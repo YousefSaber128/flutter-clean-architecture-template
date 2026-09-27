@@ -7,7 +7,7 @@ import '../manager/cart_cubit.dart';
 import '../manager/cart_state.dart';
 
 class CartPage extends StatelessWidget {
-  const CartPage({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
